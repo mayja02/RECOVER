@@ -5,4 +5,4 @@
 
 ####For more information about RECOVER, go [HERE](http://http://giscenter.isu.edu/research/Techpg/nasa_RECOVER/index.htm)
 
-[logo]: https://github.com/mayja02/RECOVER/blob/master/assets/images/OfficialRECOVERlogo.jpg "RECOVER"
+[logo]: https://github.com/mayja02/RECOVER/blob/master/src/client/assets/images/OfficialRECOVERlogo.jpg "RECOVER"
