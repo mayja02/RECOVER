@@ -1,0 +1,78 @@
+#GSCCModal{
+  top: 200px;
+  opacity: 1;
+  font-size: 12px;
+}
+
+#ModalLogo{
+  display: block;
+}
+
+.nav-tabs > li, .nav-pills > li {
+    float:none;
+    display:inline-block;
+    *display:inline; /* ie7 fix */
+     zoom:1; /* hasLayout ie7 trigger */
+}
+
+.nav-tabs, .nav-pills {
+    text-align:center;
+}
+
+.modal{
+  overflow: visible;
+
+}
+.modal-dialog{
+  text-align: center;
+  margin: 0 auto;
+  width: 450px;
+  border-radius: 10px;
+  background-color: #39628C;
+  color: #CEE7F4;
+}
+
+.modal-content{
+  background-color: #39628C;
+}
+
+.modal-body{
+  text-align: left;
+}
+
+.modal-footer{
+  text-align: center;
+}
+
+.modal-title img{
+  padding: 5px 0;
+}
+
+.modal-header{
+  border: none;
+}
+
+.tab-content {
+  padding: 10px;
+  height: 300px;
+  overflow: auto;
+  text-align: left;
+}
+
+.nav>li>a{
+  line-height: 1;
+  background-color: #33587e;
+  border: none;
+  padding: 8px 13px;
+  margin: 0 1px;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover {
+  background-color: #39628C;
+  color: inherit;
+  cursor: default;
+}
+
+.nav-tabs>li>a:hover{
+  cursor: pointer;
+}

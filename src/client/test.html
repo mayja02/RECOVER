@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RECOVER: [NAME] Fire</title>
+  <link rel="SHORTCUT ICON" href="https://giscenter.isu.edu/favicon.ico">
+
+  <link rel="stylesheet" href="https://js.arcgis.com/3.16/dijit/themes/claro/claro.css">
+  <link rel="stylesheet" href="lib/bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/3.16/esri/css/esri.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script src="https://js.arcgis.com/3.16/"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="lib/bootstrap/bootstrap.js"></script>
+  <script type="text/javascript" src="lib/TOC.js"></script>
+
+</head>
+
+<body class="claro">
+
+
+  <div class="loading-indicator">
+    <div class="loading-message" id="loading_message"></div>
+    <div id="busyIndicator" class="busyImage">
+      <div><img src="assets\images\OfficialRECOVERlogo_sm.png"></div>
+      <!-- <div><img src="assets\images\loading.gif"></div> -->
+      LOADING...
+    </div>
+  </div>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
+                  <span id ="top-bar" class="icon-bar"></span>
+                  <span id="middle-bar" class="icon-bar"></span>
+                  <span id="bottom-bar" class="icon-bar"></span>
+        </button>
+
+      <a class="navbar-brand" href="#">
+        <img alt="Brand" src="assets\images\NASA_Logo_Original.png">
+      </a>
+      <dl class="nav navbar-left">
+        <dt><h3>RECOVER: [NAME] Fire (Beta)</h3></dt>
+        <dd>
+          <h6>Rehabilitation Capability Convergence for Ecosystem Recovery</h6></dd>
+      </dl>
+
+
+
+      <dl id="tools" class="nav navbar">
+        <dd class="tooltips"><img id="LyrListImg" class="selected" src="assets\images\i_layers.png" />
+          <figcaption>Layer List</figcaption>
+        </dd>
+        <dd class="tooltips"><img id="SwipeImg" src="assets\images\i_swipe.png" />
+          <figcaption>Swipe</figcaption>
+        </dd>
+        <dd class="tooltips"><img id="DrawImg" src="assets/images/i_draw2.png" />
+          <figcaption>Draw</figcaption>
+        </dd>
+        <dd class="tooltips"><img id="BookmarkImg" src="assets/images/i_bookmark.png" />
+          <figcaption>Bookmarks</figcaption>
+        </dd>
+        <dd class="tooltips"><img id="ShpImg" src="assets\images\i_shapefile_add.png" />
+          <figcaption>Import Shapefile</figcaption>
+        </dd>
+        <dd class="tooltips"><img id="PrintImg" src="assets\images\i_print.png" />
+          <figcaption>Print</figcaption>
+        </dd>
+      </dl>
+
+
+      <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
+        <dl id="links" class="nav navbar-right">
+          <span>
+            <dd><a target="_blank" href="http://fuji.giscenter.isu.edu/recover2/[NAME]/assets/reports/ReportErr.pdf">Reports</a></dd>
+            <dd><a target="_blank" href="http://fuji.giscenter.isu.edu/recover2/[NAME]/assets/[NAME].zip" download="[NAME].zip">Download Data</a></dd>
+            <dd><a target="_black" href="http://giscenter.isu.edu/research/Techpg/nasa_RECOVER/pdf/RECOVER_Disclaimer.pdf">Disclaimer</a></dd>
+              </span>
+          <span>
+            <dd><a target="_blank" href="http://giscenter.isu.edu/research/Techpg/nasa_RECOVER/index.htm">RECOVER</a></dd>
+            <dd><a target="_blank" href="http://giscenter.isu.edu/">ISU GIS TReC</a></li></dd>
+          </span>
+          <span>
+            <dd><a target="_blank" href="http://www.nasa.gov/centers/goddard/about/people/index.html">NASA GSFC</a></li></dd>
+            <dd><a target="_blank" href="mailto:RECOVERdss@gmail.com?subject=RECOVER">Contact Us!</a></dd>
+          </span>
+
+        </dl>
+      </div>
+    </div>
+    </div>
+  </nav>
+
+  <div id="swipeDiv"></div>
+  <div id="map">
+
+    <span id="info"></span>
+    <span id="search"></span>
+    <div id="basemapButton">
+      <div data-dojo-type="dijit/TitlePane" data-dojo-props="title:'Basemaps', closable:false, open:false">
+        <div class="digitDojoContentPane">
+          <div id="basemapGallery"></div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!--Modal to display on page load-->
+    <div id="GSCCModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Welcome to the <span id="ModalLogo"><img src="assets/images/OfficialRECOVERlogo_sm.png" alt=""></span> Decision Support System</h4>
+          </div>
+
+          <ul class="nav nav-tabs" id="myTab">
+            <li class="active"> <a data-toggle="tab" data-target="#about">About</a></li>
+            <li><a data-toggle="tab" data-target="#disclaimer">Disclaimer</a></li>
+            <li><a data-toggle="tab" data-target="#credits">Credits</a></li>
+          </ul>
+
+          <div class="tab-content">
+            <div id="about" class="tab-pane active">
+              <p>Developed upon Esri’s ArcGIS API for Javascript, the RECOVER web map client will enable end-users to consume a mashup of web services applicable to a specific wildfire event.
+                <br><br> The graphical user interface will use a customized widget to enable the end-user to interact with the mapping application by assigning weighted values to selected layers such as fire intensity, fire severity, soils, soil moisture,
+                and wildlife habitat. The custom values will then be automatically processed using a geoprocessing service. The results will enable the end-user to formulate a more informed rehabilitation and monitoring plan for the burned areas in question.</p>
+            </div>
+            <div id="disclaimer" class="tab-pane">
+              <p><em>All content provided by the RECOVER Decision Support System (DSS) is for informational
+              purposes only. NASA and Idaho State University as stewards of RECOVER DSS will not be
+              liable for any errors or omissions in the data and information provided nor for the availability of
+              this information.<br><br>
+
+              The stewards have made every attempt to ensure the accuracy and reliability of the information
+              provided on this website. However, the information is provided "as is" without warranty of any
+              kind. The stewards do not accept any responsibility or liability for the accuracy, content,
+              completeness, legality, or reliability of the information contained on this website.
+              No warranties, promises and/or representations of any kind, expressed or implied, are given as to
+              the nature, standard, accuracy or otherwise of the information provided in this website nor to the
+              suitability or otherwise of the information to your particular circumstances.
+              The stewards shall not be liable for any loss or damage of whatever nature (direct, indirect,
+              consequential, or other) whether arising in contract, tort or otherwise, which may arise as a result
+              of your use of (or inability to use) this website, or from your use of (or failure to use) the
+              information on this site.<br><br>
+
+              This website provides links to other websites owned by third parties. The content of such third
+              party sites is not within our control, and we cannot and will not take responsibility for the
+              information or content thereon. Links to such third party sites are not to be taken as an
+              endorsement by the stewards of the third party site, or any products promoted, offered or sold on
+              the third party site, nor that such third party sites are free from computer viruses or anything else
+              that has destructive properties. We cannot and do not take responsibility for the collection or use
+              of personal data from any third party site. In addition, we will not accept responsibility for the
+              accuracy of third party advertisements.</em></p>
+            </div>
+            <div id="credits" class="tab-pane">
+              <p>We wish to thank the following groups for their contributions and efforts to make the RECOVER web application available to you.
+                <br><br> Developers
+                <br><br>
+                <em>- Idaho State University GIS TReC<br>
+                - NASA Goddard Space Flight Center</em>
+                <br><br> Operational End Users
+                <br><br>
+                <em>- United States Bureau of Land Management<br>
+                - Idaho Department of Lands</em></p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button id="close_modal" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="LyrWidget" class="widget_container" style="position: absolute; top: 150px; left: 75px">
+      <div id="LyrListTitle" class="widget_title"><img class="widgetIcon" src="assets\images\i_layers.png"><label for="LyrListTitle">Layer List & Legend</label>
+        <button type="button" name="button" id="CloseLyrWidget" class="close remove"><img src="assets/images/w_close.png"</button>
+        <button type="button" name="button" id="MinLyrWidget" class="close minimize"><img src="assets/images/w_min.png"</button>
+      </div>
+
+      <div class="widget_content">
+        <div id="tocDiv"></div>
+      </div>
+
+    </div>
+
+    <div id="SwipeWidget" class="widget_container" style="display:none; position: absolute; top: 150px; left: 75px">
+      <div id="SwipeTitle" class="widget_title"><img class="widgetIcon" src="assets\images\i_swipe.png"><label for="SwipeTitle">Swipe/Spotlight</label>
+        <button type="button" name="button" id="CloseSwipeWidget" class="close remove"><img src="assets/images/w_close.png"</button>
+        <button type="button" name="button" id="MinSwipeWidget" class="close minimize"><img src="assets/images/w_min.png"</button>
+      </div>
+      <div class="widget_content">
+        <h4>Type</h4>
+        <ul class="toggle-items">
+          <li id="toggleVertical">Vertical</li>
+          <li id="toggleHorizontal">Horizontal</li>
+          <!--<li id="toggleScope">Scope</li>-->
+        </ul>
+        <h6><em>Map navigation disabled when swipe is active</em></h6>
+      </div>
+    </div>
+
+
+    <div id="BookmarksWidget" class="widget_container" style="display: none; position: absolute; top: 100px; left: 400px">
+      <div id="BookmarkTitle" class="widget_title"><img class="widgetIcon" src="assets\images\i_bookmark.png"><label for="BookmarkTitle">Bookmarks</label>
+        <button type="button" name="button" id="CloseBookmark" class="close remove"><img src="assets/images/w_close.png"</button>
+        <button type="button" name="button" id="MinBookmarkWidget" class="close minimize"><img src="assets/images/w_min.png"</button>
+      </div>
+      <div class="widget_content">
+        <div id="Bookmarks"></div>
+      </div>
+    </div>
+
+    <div id="ShpWidget" class="widget_container" style="display: none; position: absolute; top: 100px; left: 400px">
+      <div id="ShpfileTitle" class="widget_title"><img class="widgetIcon" src="assets\images\shapefiles.png"><label for="ShpfileTitle">Import Shapefile</label>
+        <button type="button" name="button" id="CloseShpfileWidget" class="close remove"><img src="assets/images/w_close.png"</button>
+        <button type="button" name="button" id="MinShpfileWidget" class="close minimize"><img src="assets/images/w_min.png"</button>
+      </div>
+      <div class="widget_content">
+        <div id="ImportShp">
+          <p>To load a shapefile, the files must be zipped. <br><br> At a minimum, there must be 2 files in the zip, 1 .shp,<br>1 .dbf , and an optional .prj file.</p>
+          <p>Visit the <a target='_blank' href="http://doc.arcgis.com/en/arcgis-online/reference/shapefiles.htm">Shapefiles</a> help topic for information and limitations.</p>
+          <form enctype="multipart/form-data" method="post" id="uploadForm">
+            <div class="field">
+              <label class="file-upload">
+                        <input type="file" name="file" id="inFile">
+                    </label>
+            </div>
+          </form>
+          <!-- <button><input type="file"><img src="assets/images/i_folder.png"> Upload Local Shapefile...</button> -->
+          <span class="file-upload-status" style="opacity:1;" id="upload-status"></span>
+          <div id="fileInfo">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="DrawWidget" class="widget_container" style="display: none; position: absolute; top: 100px; left: 400px">
+      <div id="DrawTitle" class="widget_title"><img class="widgetIcon" src="assets\images\i_draw2.png"><label for="DrawTitle">Draw and Measure</label>
+        <a id="graphicDownload"><img id="saveGraphic" src="assets/images/i_save.png"></a>
+        <div class="image-upload" style="display: inline; padding: 0">
+          <label id="loadLabel" for="file-input">
+        <img id="loadGraphic" src="assets/images/i_folder.png"/>
+    </label>
+
+          <input id="file-input" type="file" accept=".json" />
+        </div>
+        <button type="button" name="button" id="CloseDrawWidget" class="close remove"><img src="assets/images/w_close.png"</button>
+        <button type="button" name="button" id="MindrawWidget" class="close minimize"><img src="assets/images/w_min.png"</button>
+      </div>
+      <div class="widget_content">
+        <div>Select a shape then draw on map to add graphic</div>
+        <button id="point" data-dojo-type="dijit/form/Button" title="Draw Point"><img src="assets\images\i_draw_point.png" ></button>
+        <!--<button data-dojo-type="dijit/form/Button">Multi Point</button> -->
+        <button id="line" data-dojo-type="dijit/form/Button" title="Draw Line"><img src="assets/images/i_draw_line.png"></button>
+        <button id="Polyline" data-dojo-type="dijit/form/Button" title="Draw PolyLine"><img src="assets/images/i_draw_line.png"</img></button>
+        <button id="Polygon" data-dojo-type="dijit/form/Button" title="Draw Polygon"><img src="assets/images/i_draw_poly.png"></button>
+        <button id="Freehand Polyline " data-dojo-type="dijit/form/Button" title="Draw Freehand Line"><img src="assets/images/i_draw_freeline.png"></button>
+        <button id="Freehand Polygon" data-dojo-type="dijit/form/Button" title="Draw Freehand Polygon"><img src="assets/images/i_draw_freepoly.png"></button>
+        <button id="Rectangle" data-dojo-type="dijit/form/Button" title="Draw Rectangle"><img src="assets/images/i_draw_rect.png"></button>
+        <button id="Ellipse" data-dojo-type="dijit/form/Button" title="Draw Ellipse"><img src="assets/images/i_draw_ellipse.png"></button>
+        <button id="Arrow" data-dojo-type="dijit/form/Button" title="Draw Arrow"><img src="assets/images/i_arrow1.png"></button>
+        <button id="Text" data-dojo-type="dijit/form/Button" title="Add Text"><img  src="assets/images/i_draw_text.png"></button>
+
+        <div id="GraphicHTML">
+
+
+        </div>
+        <input id="FillcheckBox" />
+        <label for="FillcheckBox">Solid Fill</label>
+        <input id="MeasCheckBox" />
+        <label for="MeasCheckBox">Add Measurements</label>
+        <div id="units"></div>
+        <br><br> Size/Thickness:
+        <div id="spinnerId1"></div>
+        <br><br>
+        <div id="TransSlider"></div><label for="slider1input">Transparency:</label><input readonly id="slider1input" size="1" value="0%" />
+        <br><br>Graphic/Text Color:
+        <div></div>
+        <div id="colorButton" style="background-color: #FFFFFF; border-color: black; border-width: 1px;" dojoType="dijit/form/DropDownButton"> <span id="colorText"> <span id="colorSwatch" style="height: 10px; width: 10px; border: 1px solid black; background-color: black;">&nbsp;&nbsp;</span></span>
+          <div data-dojo-type="dijit/TooltipDialog" id="colorPaletteDialog" title="Color Palette">
+            <div data-dojo-type="dijit/ColorPalette" id="colorPaletteWidget"></div>
+          </div>
+        </div>
+        <br><br>
+        <input id="value0Box" data-dojo-type="dijit/form/TextBox" value="" placeHolder="enter your text here" data-dojo-props="intermediateChanges:true"></input>
+
+
+        <br><br>Font Size:
+        <div id="spinnerId2"></div>
+        <div data-dojo-type="dijit/form/ToggleButton" id="bold" data-dojo-props="iconClass:'dijitEditorIcon dijitEditorIconBold', showLabel:false"></div>
+        <div data-dojo-type="dijit/form/ToggleButton" id="underline" data-dojo-props="iconClass:'dijitEditorIcon dijitEditorIconUnderline', showLabel:false"></div>
+        <div data-dojo-type="dijit/form/ToggleButton" id="italic" data-dojo-props="iconClass:'dijitEditorIcon dijitEditorIconItalic', showLabel:false"></div>
+        <br><br>
+        <br><br>
+        <button data-dojo-type="dijit/form/Button" id="undo" data-dojo-props="disabled: true, iconClass:'dijitEditorIcon dijitEditorIconUndo'"></button>
+        <button data-dojo-type="dijit/form/Button" id="redo" data-dojo-props="disabled: true, iconClass:'dijitEditorIcon dijitEditorIconRedo'"></button>
+        <br><br>
+        <button id="clear" data-dojo-type="dijit.form.Button" type="button" data-dojo-attach-point="button">Clear all graphics</button>
+        <br><br>Right-click a Graphic to access options
+      </div>
+    </div>
+
+    <!-- Print Form Begin -->
+    <div id="PrintWidget" class="widget_container" style="display: none; position: absolute; top: 150px; left: 75px">
+      <div id="PrintTitle" class="widget_title"><img class="widgetIcon" src="assets\images\i_print.png"><label for="PrintTitle">Print</label>
+        <button type="button" name="button" id="ClosePrintWidget" class="close remove"><img src="assets/images/w_close.png"</button>
+        <button type="button" name="button" id="MinPrintWidget" class="close minimize"><img src="assets/images/w_min.png"</button>
+      </div>
+      <div class="widget_content">
+        <form id="frmPrint" action="" onsubmit="return false;">
+          <!-- Printer Begin -->
+          <div id="printer">
+            <!-- Information Begin -->
+            <div id="information">
+
+              <!-- Content for print dijit Begin -->
+              <table>
+                <tr>
+                  <td><label for="printTitleId">Title</label></td>
+                  <td><input type="text" id="printTitleId" name="printTitle" /></td>
+                </tr>
+                <tr>
+                  <td><label for="printAuthor">Author</label></td>
+                  <td><input type="text" id="printAuthor" name="printAuthor" /></td>
+                </tr>
+                <!-- Print Layout Begin -->
+                <tr>
+                  <td><label for="printLayoutId">Layout templates</label></td>
+                  <td><select name="printLayout" id="printLayoutId">
+                          <option value="BLM_land">BLM_land</option>
+                          <option value="BLM_port">BLM_port</option>
+                          <option value="GIS_TReC">GIS_TReC</option>
+                          <option value="MAP_ONLY">MAP_ONLY</option>
+                        </select></td>
+                </tr>
+                <!-- Print Layout End -->
+                <!-- Print Format Begin -->
+                <tr>
+                  <td><label for="printFormatId">Formats</label></td>
+                  <td><select name="printFormat" id="printFormatId">
+                          <option value="pdf" selected>PDF</option>
+                          <option value="png32">PNG32</option>
+                          <option value="png8">PNG8</option>
+                          <option value="jpg">JPG</option>
+                          <option value="gif">GIF</option>
+                          <option value="eps">EPS</option>
+                          <option value="svg">SVG</option>
+                        </select></td>
+                </tr>
+              </table>
+              <!-- Print Format End -->
+              <!-- Information End -->
+            </div>
+            <button type="button" id="btnPrintReady">Print</button>
+            <!-- Content for print dijit End -->
+          </div>
+          <!-- Printer End -->
+        </form>
+        <!-- Print Form End -->
+      </div>
+    </div>
+    <script type="text/javascript" src="js/main.min.js"></script>
+
+</body>
+
+</html>

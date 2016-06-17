@@ -1,0 +1,42 @@
+{
+  "name": "recover_js",
+  "version": "1.0.0",
+  "description": "JS application for RECOVER DSS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mayja02/RECOVER.git"
+  },
+  "author": "Jeff May",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mayja02/RECOVER/issues"
+  },
+  "homepage": "https://github.com/mayja02/RECOVER#readme",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.3",
+    "jquery": "^3.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-jquery": "^1.1.2",
+    "gulp-order": "^1.1.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.3",
+    "gulp-uglifycss": "^1.0.6"
+  },
+  "keywords": [
+    "RECOVER",
+    "NASA",
+    "ISU",
+    "GIS",
+    "TReC"
+  ]
+}

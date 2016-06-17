@@ -1,0 +1,118 @@
+.claro{
+  overflow: hidden
+
+}
+html, body{
+  height:100%;
+  min-height: 100%;
+  font-family: verdana;
+
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+}
+
+/* basemap button styling*/
+#basemapButton {
+	position:absolute;
+	right:10px;
+	top:60px;
+	z-index:500;
+}
+
+.digitDojoContentPane{
+  width:385px;
+  height: 250px;
+  overflow: auto;
+}
+
+.dijitTitlePaneContentInner{
+  background-color: #CEE7F4;
+}
+
+/* scale bar styles */
+
+.esriScalebarEnglishLine {
+	border: 2px solid #ffffff;
+	border-bottom-style:none;
+}
+
+.esriScalebarMetricLine {
+	border: 2px solid #ffffff;
+	border-top-style:none;
+}
+
+.esriScalebar {
+	position: fixed;
+	bottom: 35px;
+}
+
+.esriScalebarLabel {
+	color: #000000;
+  text-shadow:  -1px -1px 0 #ffffff,
+    1px -1px 0 #ffffff,
+    -1px 1px 0 #ffffff,
+    1px 1px 0 #ffffff,
+    -1px 0 0 #ffffff,
+    1px 0 0 #ffffff,
+    0 1px 0 #ffffff,
+    0 -1px 0 #ffffff;
+}
+
+.esriPopup .sizer {
+  width: 310px
+}
+.esriPopup .titlePane {
+  background-color: #39628C;
+  color: #CEE7F4;
+}
+
+.esriPopupWrapper a, .esriPopupWrapper a:visited {
+  color: #336699;
+  letter-spacing: 0px;
+}
+
+.actionList span{
+  letter-spacing: 0px;
+}
+
+#search {
+  position: fixed;
+  z-index: 2;
+  top: 70px;
+  left: 65px;
+}
+
+#info {
+	position:fixed;
+	left:25px;
+	bottom:5px;
+	color:#000000;
+	z-index:50;
+	font-size: 10px;
+	font-weight: bolder;
+	text-shadow:  -1px -1px 0 #ffffff,
+    1px -1px 0 #ffffff,
+    -1px 1px 0 #ffffff,
+    1px 1px 0 #ffffff,
+    -1px 0 0 #ffffff,
+    1px 0 0 #ffffff,
+    0 1px 0 #ffffff,
+    0 -1px 0 #ffffff;
+}
+
+@media (max-width: 785px ){
+  .esriSimpleSliderTL{
+    left: 60px;
+  }
+
+  .digitDojoContentPane{
+    width: 150px;
+  }
+
+  #search{
+    visibility: hidden;
+  }
+}
