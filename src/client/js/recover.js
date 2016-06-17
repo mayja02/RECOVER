@@ -211,9 +211,9 @@ var widgets;
        function updateLayerVisibility(){
        visible = [];
 
-       for(var i = 0; i < toc.layerInfos[1].layer._tocInfos.length; i++){
+       for(var i = 0; i < toc.layerInfos[0].layer._tocInfos.length; i++){
 
-         var layer = toc.layerInfos[1].layer._tocInfos[i];
+         var layer = toc.layerInfos[0].layer._tocInfos[i];
 
          if (layer.visible === true){
 
