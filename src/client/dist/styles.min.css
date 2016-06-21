@@ -818,10 +818,10 @@ tr.visible-print{display:table-row !important}th.visible-print,td.visible-print{
 .busyImage img.center{margin:0 auto;display:block}@media(max-width:480px){.app-error .loading-message{top:0}
 .loading-indicator{top:0;display:absolute;width:100%;height:100%}}.claro{overflow:hidden}
 html,body{height:100%;min-height:100%;font-family:verdana}#map{height:100%;width:100%}
-#basemapButton{position:absolute;right:10px;top:60px;z-index:500}.digitDojoContentPane{width:385px;height:250px;overflow:auto}
-.dijitTitlePaneContentInner{background-color:#cee7f4}.esriScalebarEnglishLine{border:2px solid #fff;border-bottom-style:none}
-.esriScalebarMetricLine{border:2px solid #fff;border-top-style:none}.esriScalebar{position:fixed;bottom:35px}
-.esriScalebarLabel{color:#000;text-shadow:-1px -1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff,1px 1px 0 #fff,-1px 0 0 #fff,1px 0 0 #fff,0 1px 0 #fff,0 -1px 0 #fff}
+#basemapButton{position:absolute;right:10px;top:60px;z-index:500}.claro .dijitTitlePane .dijitArrowNode{background-image:url("./assets/images/i_basemap.png");background-repeat:no-repeat;height:8px;width:7px}
+.digitDojoContentPane{width:385px;height:250px;overflow:auto}.dijitTitlePaneContentInner{background-color:#cee7f4}
+.esriScalebarEnglishLine{border:2px solid #fff;border-bottom-style:none}.esriScalebarMetricLine{border:2px solid #fff;border-top-style:none}
+.esriScalebar{position:fixed;bottom:35px}.esriScalebarLabel{color:#000;text-shadow:-1px -1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff,1px 1px 0 #fff,-1px 0 0 #fff,1px 0 0 #fff,0 1px 0 #fff,0 -1px 0 #fff}
 .esriPopup .sizer{width:310px}.esriPopup .titlePane{background-color:#39628c;color:#cee7f4}
 .esriPopupWrapper a,.esriPopupWrapper a:visited{color:#369;letter-spacing:0}.actionList span{letter-spacing:0}
 #search{position:fixed;z-index:2;top:70px;left:65px}#info{position:fixed;left:25px;bottom:5px;color:#000;z-index:50;font-size:10px;font-weight:bolder;text-shadow:-1px -1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff,1px 1px 0 #fff,-1px 0 0 #fff,1px 0 0 #fff,0 1px 0 #fff,0 -1px 0 #fff}

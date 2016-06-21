@@ -30,7 +30,6 @@ var widgets;
     "esri/symbols/SimpleLineSymbol",
     "esri/Color",
     "esri/dijit/Scalebar",
-    "esri/dijit/Search",
     "esri/dijit/Popup",
     "esri/dijit/OverviewMap",
     "esri/dijit/Basemap",
@@ -52,7 +51,7 @@ var widgets;
 
 
   function(Map, FeatureLayer, ArcGISDynamicMapServiceLayer, SpatialReference, GeometryService, webMercatorUtils, Extent, scaleUtils, SimpleRenderer, ClassBreaksRenderer, SimpleFillSymbol, SimpleLineSymbol,
-  Color, Scalebar, Search, Popup, OverviewMap, Basemap, BasemapGallery, connect,  on,  query, arrayUtils, TOC, move, dom, domConstruct, parser){
+  Color, Scalebar,Popup, OverviewMap, Basemap, BasemapGallery, connect,  on,  query, arrayUtils, TOC, move, dom, domConstruct, parser){
 
     parser.parse();
 
@@ -113,7 +112,7 @@ var widgets;
     // fireAffectedVegetation = new ArcGISDynamicMapServiceLayer("http://fuji.giscenter.isu.edu/arcgis/rest/services/RECOVER/Soda_Fire_Affected_Vegetation/MapServer");
 
     map.on("load", function(){
-    map.addLayers([baseLyrs, FireSeverity, FireRecords, FireLine]);
+    map.addLayers([FireSeverity, FireRecords, FireLine, baseLyrs]);
     // map.addLayer(fireAffectedVegetation);
     });
 
@@ -124,11 +123,6 @@ var widgets;
             toc = new TOC({
               map: map,
               layerInfos: [{
-                layer: baseLyrs,
-                title: "RECOVER Base Layers",
-                collapsed: true, // whether this root layer should be collapsed initially, default false.
-                slider: true // whether to display a transparency slider.
-              },{
                 layer: FireSeverity,
                 title: "Fire Severity",
                 slider:true,
@@ -143,6 +137,11 @@ var widgets;
                 title: "Fire Line",
                 slider:true,
                 collapsed: true,
+              }, {
+                layer: baseLyrs,
+                title: "RECOVER Base Layers",
+                collapsed: true, // whether this root layer should be collapsed initially, default false.
+                slider: true // whether to display a transparency slider.
               }
               //  {
               //   layer: fireAffectedVegetation,
@@ -174,13 +173,8 @@ var widgets;
         // use "metric" for kilometers
         scalebarUnit: "dual"
       });
-      createBasemapGallery();
 
-      //start-up the search bar
-      var s = new Search({
-        map: map
-        }, "search");
-        s.startup();
+      createBasemapGallery();
 
       var overviewMapDijit = new OverviewMap({
         map: map,
@@ -224,9 +218,9 @@ var widgets;
        function updateLayerVisibility(){
        visible = [];
 
-       for(var i = 0; i < toc.layerInfos[0].layer._tocInfos.length; i++){
+       for(var i = 0; i < toc.layerInfos[3].layer._tocInfos.length; i++){
 
-         var layer = toc.layerInfos[0].layer._tocInfos[i];
+         var layer = toc.layerInfos[3].layer._tocInfos[i];
 
          if (layer.visible === true){
 
@@ -765,7 +759,7 @@ var Lat, Long, linelength, selectedTrans, graphic, point2, curcount;
 
       //Default Styles
       var symbolfill = SimpleFillSymbol.STYLE_NULL;
-      var bold = Font.WEIGHT_NORMAL;
+      var bold = Font.WEIGHT_BOLD;
       var underline = "none";
       var italic = Font.STYLE_NORMAL;
       var myNumber = 3;
@@ -860,7 +854,7 @@ var Lat, Long, linelength, selectedTrans, graphic, point2, curcount;
             var textSymbol = new TextSymbol(
               "Lat: " + (lat) + ", Long: " + (longi)).setColor(
               new Color(newColor)).setAlign(Font.ALIGN_MIDDLE).setAngle(0).setDecoration(underline).setOffset(5, 5).setFont(
-              new Font(myFont).setWeight(bold).setStyle(italic));
+              new Font(myFont).setWeight(bold).setStyle(italic)).setHaloSize(1).setHaloColor(new Color("[255,255,255]"));
             var labelPointGraphic = new Graphic(locPoint, textSymbol);
             map.graphics.add(labelPointGraphic);
           }
@@ -899,7 +893,7 @@ var Lat, Long, linelength, selectedTrans, graphic, point2, curcount;
               var SelText = selected.symbol.text;
               var symbol2 = new TextSymbol(SelText).setColor(
                 new Color(newColor2)).setAlign(Font.ALIGN_START).setAngle(0).setDecoration(underline).setFont(
-                new Font(myFont).setWeight(bold).setStyle(italic));
+                new Font(myFont).setWeight(bold).setStyle(italic)).setHaloSize(1).setHaloColor(new Color("[255,255,255]"));
               symbol2.setAngle(TextAngle);
               selected.setSymbol(symbol2);
             }
@@ -945,6 +939,9 @@ var Lat, Long, linelength, selectedTrans, graphic, point2, curcount;
           }, {
             label: "Yards",
             value: "YARDS"
+          }, {
+            label: "Acres",
+            value: "ACRES"
           }]
         });
         ss.startup();
@@ -981,6 +978,10 @@ var Lat, Long, linelength, selectedTrans, graphic, point2, curcount;
             Unit_A_Label = " sq. yards";
             Unit_L_Label = " yards";
           }
+          else if (evt == "ACRES") {
+            Unit_Area = GeometryService.UNIT_ACRES;
+            Unite_L_Label = "Acres";
+          }
           else {
             return;
           }
@@ -995,9 +996,17 @@ var Lat, Long, linelength, selectedTrans, graphic, point2, curcount;
               places: 5
             });
             var textSymbol = new TextSymbol(
-              "Lat: " + (lat) + ", Long: " + (longi)).setColor(
-              new Color(newColor)).setAlign(Font.ALIGN_MIDDLE).setAngle(0).setDecoration(underline).setOffset(5, 5).setFont(
-              new Font(myFont).setWeight(bold).setStyle(italic));
+              "Lat: " + (lat) + ", Long: " + (longi))
+              .setColor(new Color(newColor))
+              .setAlign(Font.ALIGN_MIDDLE)
+              .setAngle(0)
+              .setDecoration(underline)
+              .setOffset(5, 5)
+              .setFont(new Font(myFont)
+              .setWeight(bold)
+              .setStyle(italic))
+              .setHaloColor(new Color([255,255,255]))
+              .setHaloSize(1);
             var labelPointGraphic = new Graphic(locPoint, textSymbol);
             map.graphics.add(labelPointGraphic);
           }
@@ -1190,7 +1199,7 @@ var Lat, Long, linelength, selectedTrans, graphic, point2, curcount;
           var addText = map.on("click", function(evt) {
             symbol = new TextSymbol(myText).setColor(
               new Color(newColor)).setAlign(Font.ALIGN_START).setAngle(0).setDecoration(underline).setFont(
-              new Font(myFont).setWeight(bold).setStyle(italic));
+              new Font(myFont).setWeight(bold).setStyle(italic)).setHaloSize(1).setHaloColor(new Color("[255,255,255]"));
             point2 = new Point(evt.mapPoint);
             graphic = new Graphic(point2, symbol);
             addToMap();
@@ -1321,10 +1330,10 @@ var Lat, Long, linelength, selectedTrans, graphic, point2, curcount;
       //Changes Text to Bold
       on(dijit.byId("bold"), "change", function(evt) {
         if (evt === true) {
-          bold = Font.WEIGHT_BOLD;
+          bold = Font.WEIGHT_BOLDER;
         }
         else {
-          bold = Font.WEIGHT_NORMAL;
+          bold = Font.WEIGHT_BOLD;
         }
       });
 
@@ -1416,9 +1425,9 @@ var Lat, Long, linelength, selectedTrans, graphic, point2, curcount;
       var geometryService = new GeometryService("http://recover.giscenter.isu.edu/arcgis/rest/services/Utilities/Geometry/GeometryServer");
 
       //Standard Units
-      var Unit_Area = GeometryService.UNIT_SQUARE_FEET;
+      var Unit_Area = GeometryService.UNIT_ACRES;
       var Unit_Line = GeometryService.UNIT_FOOT;
-      var Unit_A_Label = " sq. feet";
+      var Unit_A_Label = " acres";
       var Unit_L_Label = " feet";
 
       function addMeas(evt) {
@@ -1433,7 +1442,7 @@ var Lat, Long, linelength, selectedTrans, graphic, point2, curcount;
           var textSymbol = new TextSymbol(
             "Lat: " + (lat) + ", Long: " + (longi)).setColor(
             new Color(newColor)).setAlign(Font.ALIGN_MIDDLE).setAngle(0).setDecoration(italic).setOffset(5, 5).setFont(
-            new Font(myFont).setWeight(bold).setStyle(italic));
+            new Font(myFont).setWeight(bold).setStyle(italic)).setHaloColor(new Color("[255,255,255]")).setHaloSize(1);
           var labelPointGraphic = new Graphic(labelPoint, textSymbol);
           map.graphics.add(labelPointGraphic);
 
@@ -1485,7 +1494,7 @@ var Lat, Long, linelength, selectedTrans, graphic, point2, curcount;
         labelPoint = new Point(Long, Lat);
         textSymbol = new TextSymbol(linelength + Unit_L_Label).setColor(
           new Color(newColor)).setAlign(Font.ALIGN_MIDDLE).setAngle(0).setDecoration(italic).setOffset(5, 5).setFont(
-          new Font(myFont).setWeight(bold).setStyle(italic));
+          new Font(myFont).setWeight(bold).setStyle(italic)).setHaloSize(1).setHaloColor(new Color("[255,255,255]"));
         labelPointGraphic = new Graphic(labelPoint, textSymbol);
         map.graphics.add(labelPointGraphic);
       });
@@ -1495,7 +1504,7 @@ var Lat, Long, linelength, selectedTrans, graphic, point2, curcount;
         geometryService.labelPoints(geometries, function(labelPoints) {
           array.forEach(labelPoints, function(labelPoint) {
             var font = new Font(myFont).setWeight(bold);
-            var textSymbol = new TextSymbol((PolyArea + Unit_A_Label), font, new Color(polygonColor));
+            var textSymbol = new TextSymbol((PolyArea + Unit_A_Label), font, new Color(polygonColor)).setHaloSize(1).setHaloColor(new Color("[255,255,255]"));
             var labelPointGraphic = new Graphic(labelPoint, textSymbol);
             map.graphics.add(labelPointGraphic);
 
@@ -1526,6 +1535,9 @@ var Lat, Long, linelength, selectedTrans, graphic, point2, curcount;
         }, {
           id: "KILO",
           label: "Kilometers"
+        },  {
+          id: "ACRES",
+          label: "Acres"
         }]
       });
 
@@ -1569,6 +1581,10 @@ var Lat, Long, linelength, selectedTrans, graphic, point2, curcount;
           Unit_Line = GeometryService.UNIT_STATUTE_MILE;
           Unit_A_Label = " sq. yards";
           Unit_L_Label = " yards";
+        }
+        else if (evt == "ACRES") {
+          Unit_Area = GeometryService.UNITE_ACRES;
+          Unite_L_Label = "Acres";
         }
       });
       connect.connect(undoManager, "onChange", function() {
