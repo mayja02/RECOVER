@@ -53,7 +53,7 @@ var widgets;
 
   function(Map, FeatureLayer, ArcGISDynamicMapServiceLayer, SpatialReference, GeometryService, webMercatorUtils, Extent, scaleUtils, SimpleRenderer, ClassBreaksRenderer, SimpleFillSymbol, SimpleLineSymbol,
   Color, Scalebar, Search, Popup, OverviewMap, Basemap, BasemapGallery, connect,  on,  query, arrayUtils, TOC, move, dom, domConstruct, parser){
-    
+
     parser.parse();
 
     geometryService = new GeometryService("http://recover.giscenter.isu.edu/arcgis/rest/services/Utilities/Geometry/GeometryServer");
@@ -77,6 +77,20 @@ var widgets;
         $(this).parent().css("opacity", "1");
       });
     });
+
+    window.onkeydown = function (e) {
+    console.log(e.keyCode);
+    if (e.keyCode === 112) {
+      var win = window.open('http://giscenter.isu.edu/research/Techpg/nasa_RECOVER/index.htm', '_blank');
+      if (win) {
+        //Browser has allowed it to be opened
+        win.focus();
+      } else {
+        //Browser has blocked it
+        alert('Please allow popups for this website');
+      }
+          }
+    };
 
 
     startExtent = esri.geometry.Extent(-12692442.57378805, 5316630.715935899, -12496763.781377923, 5389245.892806845/*[ADD INITIAL EXTENT]*/, new SpatialReference({ wkid:102100 }));
