@@ -815,11 +815,13 @@ tr.visible-print{display:table-row !important}th.visible-print,td.visible-print{
 .app-loading .loading-indicator,.app-error .loading-indicator{display:block}.app-loading .loading-indicator{background-position:center center;background-repeat:no-repeat}
 .app-error .loading-message{background-position:top center;background-repeat:no-repeat;padding-top:60px;width:100%;position:absolute;z-index:1001;top:40%;left:0;text-align:center}
 .busyImage{display:block;width:100%;height:100%;font-size:28px;top:30%;color:#39628a;font-style:oblique;position:absolute;z-index:100001;object-position:center;text-align:center}
-.busyImage img.center{margin:0 auto;display:block}.claro{overflow:hidden}html,body{height:100%;min-height:100%;font-family:verdana}
-#map{height:100%;width:100%}#basemapButton{position:absolute;right:10px;top:60px;z-index:500}
-.digitDojoContentPane{width:385px;height:250px;overflow:auto}.dijitTitlePaneContentInner{background-color:#cee7f4}
-.esriScalebarEnglishLine{border:2px solid #fff;border-bottom-style:none}.esriScalebarMetricLine{border:2px solid #fff;border-top-style:none}
-.esriScalebar{position:fixed;bottom:35px}.esriScalebarLabel{color:#000;text-shadow:-1px -1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff,1px 1px 0 #fff,-1px 0 0 #fff,1px 0 0 #fff,0 1px 0 #fff,0 -1px 0 #fff}
+.busyImage img.center{margin:0 auto;display:block}@media(max-width:480px){.app-error .loading-message{top:0}
+.loading-indicator{top:0;display:absolute;width:100%;height:100%}}.claro{overflow:hidden}
+html,body{height:100%;min-height:100%;font-family:verdana}#map{height:100%;width:100%}
+#basemapButton{position:absolute;right:10px;top:60px;z-index:500}.digitDojoContentPane{width:385px;height:250px;overflow:auto}
+.dijitTitlePaneContentInner{background-color:#cee7f4}.esriScalebarEnglishLine{border:2px solid #fff;border-bottom-style:none}
+.esriScalebarMetricLine{border:2px solid #fff;border-top-style:none}.esriScalebar{position:fixed;bottom:35px}
+.esriScalebarLabel{color:#000;text-shadow:-1px -1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff,1px 1px 0 #fff,-1px 0 0 #fff,1px 0 0 #fff,0 1px 0 #fff,0 -1px 0 #fff}
 .esriPopup .sizer{width:310px}.esriPopup .titlePane{background-color:#39628c;color:#cee7f4}
 .esriPopupWrapper a,.esriPopupWrapper a:visited{color:#369;letter-spacing:0}.actionList span{letter-spacing:0}
 #search{position:fixed;z-index:2;top:70px;left:65px}#info{position:fixed;left:25px;bottom:5px;color:#000;z-index:50;font-size:10px;font-weight:bolder;text-shadow:-1px -1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff,1px 1px 0 #fff,-1px 0 0 #fff,1px 0 0 #fff,0 1px 0 #fff,0 -1px 0 #fff}
@@ -846,15 +848,16 @@ dd{text-align:right}.navbar-nav>li{float:none}.navbar-nav>li>a{padding-top:10px;
 @media(max-width:1400px){#tools{float:right}}@media(max-width:770px){#tools{position:fixed;display:block;padding-top:0;left:0;top:48px;width:45px;background-color:rgba(57,98,140,1);box-shadow:2px 3px 3px 0 #0d0d0d;border-bottom-right-radius:10px;border-top:0}
 .tooltips{display:flex;padding-top:5px}.tooltips figcaption{color:#cee7f4;background:#39628c;box-shadow:0 4px 3px #2b3856;border-radius:24px;position:static;display:inline-table;width:115px;margin-left:-2px;margin-top:5px;text-align:center;visibility:hidden}
 .tooltips figcaption:after{display:none}}@media(max-width:461px){h6{text-align:left;font-size:10px}
-h3{font-size:18px}}@media(max-width:402px){h3{width:180px}h6{display:none}}#GSCCModal{top:200px;opacity:1;font-size:12px}
+h3{font-size:18px}}@media(max-width:402px){h3{width:180px}h6{display:none}}#GSCCModal{margin:auto;top:15%;width:50%;margin:0 auto;opacity:1}
 #ModalLogo{display:block}.nav-tabs>li,.nav-pills>li{float:none;display:inline-block;*display:inline;zoom:1}
-.nav-tabs,.nav-pills{text-align:center}.modal{overflow:visible}.modal-dialog{text-align:center;margin:0 auto;width:450px;border-radius:10px;background-color:#39628c;color:#cee7f4}
+.nav-tabs,.nav-pills{text-align:center}.modal{overflow:visible}.modal-dialog{text-align:center;width:auto;border-radius:10px;color:#cee7f4}
 .modal-content{background-color:#39628c}.modal-body{text-align:left}.modal-footer{text-align:center}
-.modal-title img{padding:5px 0}.modal-header{border:0}.tab-content{padding:10px;height:300px;overflow:auto;text-align:left}
+.modal-title img{padding:5px 0}.modal-header{border:0}.tab-content{padding:10px;height:400px;overflow:auto;text-align:left}
 .nav>li>a{line-height:1;background-color:#33587e;border:0;padding:8px 13px;margin:0 1px}
 .nav-tabs>li.active>a,.nav-tabs>li.active>a:hover{background-color:#39628c;color:inherit;cursor:default}
-.nav-tabs>li>a:hover{cursor:pointer}form{display:table}form p{display:table-row;padding-top:7px;line-height:15px}
-form label{padding-left:10px}form input,form select{margin:4px 0;display:table-cell;background-color:#759dc0;border:1px solid #888}
+.nav-tabs>li>a:hover{cursor:pointer}@media(max-width:480px){#GSCCModal{position:fixed;font-size:12px;width:auto;top:0}
+}form{display:table}form p{display:table-row;padding-top:7px;line-height:15px}form label{padding-left:10px}
+form input,form select{margin:4px 0;display:table-cell;background-color:#759dc0;border:1px solid #888}
 form select{border-radius:3px}.inline{display:inline}.widgetIcon{position:fixed;margin:-2px -21px;height:30px}
 .widget_title label{padding-left:12px}.agsjsTOCLegendLabel{padding-left:20px}.agsjsTOCIcon{vertical-align:middle;width:20px !important}
 .esriBookmarks,.esriBookmarks .dojoDndItem{border:0}.esriBookmarkLabel{color:#cee7f4}
@@ -878,3 +881,4 @@ div.esriBookmarkItem.esriAddBookmark:hover{background-color:#2a4866}.esriAddBook
 #printer{margin:20px}#btnPrintReady{display:block;margin:15px auto;border-radius:5px;background-color:#325578}
 #saveGraphic{margin-left:45px;cursor:pointer;display:inline;height:20px}#TransSlider{display:inline-table !important;vertical-align:text-top}
 #slider1input{position:relative;top:-17px;left:80px}#loadGraphic{height:20px;cursor:pointer}
+@media(max-width:480px){figcaption{display:none}}

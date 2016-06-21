@@ -285,3 +285,9 @@ div.esriBookmarkItem.esriAddBookmark:hover {
 	height: 20px;
 	cursor: pointer;
 }
+
+@media (max-width: 480px){
+	figcaption{
+		display:none;
+	}
+}

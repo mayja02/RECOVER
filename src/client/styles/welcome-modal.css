@@ -1,7 +1,9 @@
 #GSCCModal{
-  top: 200px;
+  margin: auto;
+  top: 15%;
+  width: 50%;
+  margin: 0 auto;
   opacity: 1;
-  font-size: 12px;
 }
 
 #ModalLogo{
@@ -16,19 +18,18 @@
 }
 
 .nav-tabs, .nav-pills {
-    text-align:center;
+  text-align:center;
 }
 
 .modal{
   overflow: visible;
 
 }
+
 .modal-dialog{
   text-align: center;
-  margin: 0 auto;
-  width: 450px;
+  width: auto;
   border-radius: 10px;
-  background-color: #39628C;
   color: #CEE7F4;
 }
 
@@ -54,7 +55,7 @@
 
 .tab-content {
   padding: 10px;
-  height: 300px;
+  height: 400px;
   overflow: auto;
   text-align: left;
 }
@@ -75,4 +76,15 @@
 
 .nav-tabs>li>a:hover{
   cursor: pointer;
+}
+
+@media (max-width: 480px){
+  #GSCCModal{
+    position: fixed;
+    font-size: 12px;
+    width: auto;
+    top: 0;
+  }
+
+
 }

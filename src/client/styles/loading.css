@@ -54,3 +54,16 @@
     margin: 0 auto;
     display: block
   }
+
+  @media (max-width: 480px){
+    .app-error .loading-message {
+      top: 0
+    }
+
+    .loading-indicator {
+      top: 0;
+      display: absolute;
+      width: 100%;
+      height: 100%
+    }
+  }
