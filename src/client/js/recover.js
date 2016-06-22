@@ -78,7 +78,7 @@ var widgets;
     });
 
     window.onkeydown = function (e) {
-    console.log(e.keyCode);
+    // if user pressed F1 key, help doc launches in new tab
     if (e.keyCode === 112) {
       var win = window.open('http://giscenter.isu.edu/research/Techpg/nasa_RECOVER/index.htm', '_blank');
       if (win) {
