@@ -41,13 +41,13 @@ var Lat, Long, linelength, selectedTrans, graphic, point2, curcount;
       "dojo/data/ObjectStore", "dojo/store/Memory", "esri/geometry/webMercatorUtils", "esri/SpatialReference", "dojo/dom-construct", "dojo/_base/connect",
       "esri/symbols/Font", "esri/symbols/TextSymbol", "dojo/dom-style", "dijit/popup", "dojo/number", "esri/tasks/LengthsParameters", "esri/tasks/GeometryService",
       "esri/tasks/AreasAndLengthsParameters", "dojo/_base/array", "esri/config", "dijit/form/HorizontalSlider", "dijit/form/Select", "dijit/PopupMenuItem", "dijit/ColorPalette",
-       "dojo/query", "dojo/json", "dijit/layout/BorderContainer", "dijit/layout/ContentPane", "dijit/layout/AccordionContainer", "dijit/form/Button", "dijit/form/ToggleButton", "dojo/domReady!"
+      "dijit/layout/BorderContainer", "dijit/layout/ContentPane", "dijit/layout/AccordionContainer", "dijit/form/Button", "dijit/form/ToggleButton", "dojo/domReady!"
     ],
     function(
       parser, CheckBox, Draw, on, dom, registry, Color, Graphic, SimpleMarkerSymbol, SimpleLineSymbol, SimpleFillSymbol, NumberSpinner, Edit,
       geometryJsonUtils, Menu, MenuItem, MenuSeparator, Point, TextBox, UndoManager, CustomOperation, ObjectStore, Memory, webMercatorUtils,
       SpatialReference, domConstruct, connect, Font, TextSymbol, domStyle,
-      popup, number, LengthsParameters, GeometryService, AreasAndLengthsParameters, array, config, HorizontalSlider, Select, PopupMenuItem, ColorPalette, query, JSON) {
+      popup, number, LengthsParameters, GeometryService, AreasAndLengthsParameters, array, config, HorizontalSlider, Select, PopupMenuItem, ColorPalette) {
 
       parser.parse();
 
@@ -67,33 +67,21 @@ var Lat, Long, linelength, selectedTrans, graphic, point2, curcount;
 
       // Export graphics to JSON and download
 
-      var saveGraphic = query("#saveGraphic");
-      saveGraphic.on("click", function() {
-         console.log('saving graphics');
-        
-        //loop through the graphics:
+      $("#saveGraphic").on("click", function() {
+        // console.log('saving graphics');
+        // map.graphics.url = "graphics.json";
+        // for (i=0; i<graphicsList; i++){
+        //   var obj = graphicsList[i];
+        //   var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(obj));
+        //   console.log (data);
+        //using jquery to loop through the graphics:
 
         var jsonval = "{";
-        var graphicsArr = map.graphics.graphics;
-        
-        graphicsArr.forEach(function (graphic, index, array) {
-            var type = typeof(graphic);
-            var graphicObj = {};
-            
-            graphicObj.geometry = graphic.geometry;
-            graphicObj.symbol   = graphic.symbol;
-            
-            console.log(graphic, type)
-            console.log(graphic.symbol)
-            var jsonObj = JSON.stringify(graphic.toJson());
-            jsonval += "\"" + index + "\":" + dojo.toJson(graphic.toJson())  + ",";
+
+        $.each(map.graphics.graphics, function(index, graphic) {
+          var junk = graphic.toJson();
+          jsonval += "\"" + index + "\":" + dojo.toJson(junk) + ",";
         });
-      /*  array.forEach(graphicsArr, function(index, graphic){
-          //$.each(map.graphics.graphics, function(index, graphic) {
-          var type = typeof(graphic);
-          var jsonObj = JSON.stringify(graphic);
-          jsonval += "\"" + index + "\":" + jsonObj + ",";
-        });*/
 
         jsonval = jsonval.substring(0, jsonval.length - 1); //trim comma
         jsonval += "}";
@@ -109,48 +97,12 @@ var Lat, Long, linelength, selectedTrans, graphic, point2, curcount;
         a.href = url;
       });
       //
-      
-      //get json string from uploaded file using File API
-      var input = query('#file-input')
-      input.on("change", function(evt) {
-        if (!window.FileReader)
-          return; // Browser is not compatible
-
-        var reader = new FileReader();
-
-        reader.onload = function(evt) {
-          if (evt.target.readyState != 2) return;
-          if (evt.target.error) {
-            alert('Errorwhile reading file');
-            return;
-          }
-
-          // add each object in json file to map
-          var userGraphics = JSON.parse(evt.target.result);
-          for (var obj in userGraphics) {
-            console.log(obj);
-            console.log(userGraphics[obj]);
-            var graphic = new Graphic(userGraphics[obj]);
-            map.graphics.add(graphic);
-          }
-
-          input.value = evt.target.result;
-        };
-
-        reader.readAsText(evt.target.files[0]);
-
-
-        console.log(" a json file has been uploaded");
-        input.value = "";
-      });
 
       //On Load function/////////////////////////////////////////////
-      var drawImg = dom.byId("DrawImg");
-      
-      on(drawImg, "click", function() {
-        if(dojo.hasClass(drawImg, 'selected') ===true){
+      $("#DrawImg").on("click", function() {
+        if ($('#DrawImg').hasClass('selected') === true) {
           toolbar = new Draw(map);
-          on(toolbar, "draw-end", addToMap);
+          toolbar.on("draw-end", addToMap);
           //toolbar.on("draw-complete", addMeas);
           editToolbar = new Edit(map);
           map.on("click", function(evt) {
@@ -165,7 +117,7 @@ var Lat, Long, linelength, selectedTrans, graphic, point2, curcount;
           restoreDefaultctx();
         }
 
-        query("#CloseDrawWidget").on("click", restoreDefaultctx);
+        $("#CloseDrawWidget").on("click", restoreDefaultctx);
 
         function restoreDefaultctx() {
           dijit.byId('TransPop').destroy();
@@ -1021,6 +973,37 @@ var Lat, Long, linelength, selectedTrans, graphic, point2, curcount;
         else {
           registry.byId("redo").set("disabled", true);
         }
+      });
+
+      //get json string from uploaded file using File application
+      $('#file-input').on("change", function(evt) {
+        if (!window.FileReader)
+          return; // Browser is not compatible
+
+        var reader = new FileReader();
+
+        reader.onload = function(evt) {
+          if (evt.target.readyState != 2) return;
+          if (evt.target.error) {
+            alert('Errorwhile reading file');
+            return;
+          }
+
+          var userGraphics = JSON.parse(evt.target.result);
+          for (var obj in userGraphics) {
+            console.log(userGraphics[obj]);
+            var graphic = new Graphic(userGraphics[obj]);
+            map.graphics.add(graphic);
+          }
+
+          $("#file-input").val = evt.target.result;
+        };
+
+        reader.readAsText(evt.target.files[0]);
+
+
+        console.log(" a json file has been uploaded");
+        $("#file-input").val('');
       });
     });
 }());
