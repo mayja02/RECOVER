@@ -30,7 +30,6 @@ var widgets;
     "esri/symbols/SimpleLineSymbol",
     "esri/Color",
     "esri/dijit/Scalebar",
-    "esri/dijit/Search",
     "esri/dijit/Popup",
     "esri/dijit/OverviewMap",
     "esri/dijit/Basemap",
@@ -52,8 +51,8 @@ var widgets;
 
 
   function(Map, FeatureLayer, ArcGISDynamicMapServiceLayer, SpatialReference, GeometryService, webMercatorUtils, Extent, scaleUtils, SimpleRenderer, ClassBreaksRenderer, SimpleFillSymbol, SimpleLineSymbol,
-  Color, Scalebar, Search, Popup, OverviewMap, Basemap, BasemapGallery, connect,  on,  query, arrayUtils, TOC, move, dom, domConstruct, parser){
-    
+  Color, Scalebar,Popup, OverviewMap, Basemap, BasemapGallery, connect,  on,  query, arrayUtils, TOC, move, dom, domConstruct, parser){
+
     parser.parse();
 
     geometryService = new GeometryService("http://recover.giscenter.isu.edu/arcgis/rest/services/Utilities/Geometry/GeometryServer");
@@ -78,6 +77,20 @@ var widgets;
       });
     });
 
+    window.onkeydown = function (e) {
+    // if user pressed F1 key, help doc launches in new tab
+    if (e.keyCode === 112) {
+      var win = window.open('http://giscenter.isu.edu/research/Techpg/nasa_RECOVER/index.htm', '_blank');
+      if (win) {
+        //Browser has allowed it to be opened
+        win.focus();
+      } else {
+        //Browser has blocked it
+        alert('Please allow popups for this website');
+      }
+          }
+    };
+
 
     startExtent = esri.geometry.Extent(-12692442.57378805, 5316630.715935899, -12496763.781377923, 5389245.892806845/*[ADD INITIAL EXTENT]*/, new SpatialReference({ wkid:102100 }));
 
@@ -99,7 +112,7 @@ var widgets;
     // fireAffectedVegetation = new ArcGISDynamicMapServiceLayer("http://fuji.giscenter.isu.edu/arcgis/rest/services/RECOVER/Soda_Fire_Affected_Vegetation/MapServer");
 
     map.on("load", function(){
-    map.addLayers([baseLyrs, FireSeverity, FireRecords, FireLine]);
+    map.addLayers([FireSeverity, FireRecords, FireLine, baseLyrs]);
     // map.addLayer(fireAffectedVegetation);
     });
 
@@ -110,11 +123,6 @@ var widgets;
             toc = new TOC({
               map: map,
               layerInfos: [{
-                layer: baseLyrs,
-                title: "RECOVER Base Layers",
-                collapsed: true, // whether this root layer should be collapsed initially, default false.
-                slider: true // whether to display a transparency slider.
-              },{
                 layer: FireSeverity,
                 title: "Fire Severity",
                 slider:true,
@@ -129,6 +137,11 @@ var widgets;
                 title: "Fire Line",
                 slider:true,
                 collapsed: true,
+              }, {
+                layer: baseLyrs,
+                title: "RECOVER Base Layers",
+                collapsed: true, // whether this root layer should be collapsed initially, default false.
+                slider: true // whether to display a transparency slider.
               }
               //  {
               //   layer: fireAffectedVegetation,
@@ -160,13 +173,8 @@ var widgets;
         // use "metric" for kilometers
         scalebarUnit: "dual"
       });
-      createBasemapGallery();
 
-      //start-up the search bar
-      var s = new Search({
-        map: map
-        }, "search");
-        s.startup();
+      createBasemapGallery();
 
       var overviewMapDijit = new OverviewMap({
         map: map,
@@ -210,9 +218,9 @@ var widgets;
        function updateLayerVisibility(){
        visible = [];
 
-       for(var i = 0; i < toc.layerInfos[0].layer._tocInfos.length; i++){
+       for(var i = 0; i < toc.layerInfos[3].layer._tocInfos.length; i++){
 
-         var layer = toc.layerInfos[0].layer._tocInfos[i];
+         var layer = toc.layerInfos[3].layer._tocInfos[i];
 
          if (layer.visible === true){
 

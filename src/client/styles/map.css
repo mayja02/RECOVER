@@ -22,6 +22,13 @@ html, body{
 	z-index:500;
 }
 
+/*.claro .dijitTitlePane .dijitArrowNode {
+    background-image: url("./assets/images/i_basemap.png");
+    background-repeat: no-repeat;
+    height: 8px;
+    width: 7px;
+}*/
+
 .digitDojoContentPane{
   width:385px;
   height: 250px;
