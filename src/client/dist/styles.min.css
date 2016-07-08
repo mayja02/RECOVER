@@ -818,8 +818,7 @@ tr.visible-print{display:table-row !important}th.visible-print,td.visible-print{
 .busyImage img.center{margin:0 auto;display:block}@media(max-width:480px){.app-error .loading-message{top:0}
 .loading-indicator{top:0;display:absolute;width:100%;height:100%}}.claro{overflow:hidden}
 html,body{height:100%;min-height:100%;font-family:verdana}#map{height:100%;width:100%}
-#basemapButton{position:absolute;right:10px;top:60px;z-index:500}.claro .dijitTitlePane .dijitArrowNode{background-image:url("./assets/images/i_basemap.png");background-repeat:no-repeat;height:8px;width:7px}
-.digitDojoContentPane{width:385px;height:250px;overflow:auto}.dijitTitlePaneContentInner{background-color:#cee7f4}
+.digitDojoContentPane{width:150px;height:250px;overflow:auto}.dijitTitlePaneContentInner{background-color:#cee7f4}
 .esriScalebarEnglishLine{border:2px solid #fff;border-bottom-style:none}.esriScalebarMetricLine{border:2px solid #fff;border-top-style:none}
 .esriScalebar{position:fixed;bottom:35px}.esriScalebarLabel{color:#000;text-shadow:-1px -1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff,1px 1px 0 #fff,-1px 0 0 #fff,1px 0 0 #fff,0 1px 0 #fff,0 -1px 0 #fff}
 .esriPopup .sizer{width:310px}.esriPopup .titlePane{background-color:#39628c;color:#cee7f4}
@@ -875,8 +874,12 @@ div.esriBookmarkItem.esriAddBookmark:hover{background-color:#2a4866}.esriAddBook
 .toggle-items li{float:left;margin-right:10px;padding:5px 10px;cursor:pointer;background-color:#39628a;border-top-left-radius:6px;border-top-right-radius:6px;border-bottom-right-radius:6px;border-bottom-left-radius:6px;border:1px solid #cee7f4;text-indent:0;font-size:14px;color:#cee7f4;font-weight:bold;font-style:normal;text-decoration:none;text-align:center}
 .toggle-items li:hover{background-color:#2a4866}.toggle-items li:active{position:relative;top:1px}
 .claro .dijitCheckBox,.claro .dijitCheckBoxIcon{margin:5px 2px 5px 0}.claro .dijitButton .dijitButtonNode,.claro .dijitButtonText{border:0;padding:0;border-radius:0;box-shadow:0;background-color:rgba(57,98,140,.9)}
-.dijitButton{margin:0}.image-upload>input{display:none}#loadLabel{padding:0}#LyrWidget{width:320px}
-#DrawWidget{width:350px}#ImportShp a{letter-spacing:0;text-decoration:underline;color:#cee7f4}
+#basemapButton{position:absolute;left:20px;top:135px;z-index:500}.claro .dijitTitlePaneTitle{background-image:url("C:/Users/Jeff/Documents/GitHub/RECOVER/src/client/assets/images/i_basemap.png");background-repeat:no-repeat;background-size:22px;background-color:#FFF;background-position:center;height:30px;width:32px;border-radius:5px;border:1px solid #57585a}
+.claro .dijitTitlePaneContentInner{padding:2px;border-radius:5px}.claro .dijitTitlePaneContentOuter{background-color:transparent;border:0}
+.claro .dijitTitlePaneTitleOpen,.claro .dijitTitlePaneTitleFixedOpen{background-color:#cfe5fa}
+.claro .dijitTitlePaneTextNode,.claro .dijitFieldsetLegendNode{display:none}.dijitButton{margin:0}
+.claro .dijitTitlePane .dijitArrowNode{display:none}.image-upload>input{display:none}
+#loadLabel{padding:0}#LyrWidget{width:320px}#DrawWidget{width:350px}#ImportShp a{letter-spacing:0;text-decoration:underline;color:#cee7f4}
 #tocDiv{font-size:10px}#information table tr label{width:100%;text-align:right;padding-right:5px}
 #printer{margin:20px}#btnPrintReady{display:block;margin:15px auto;border-radius:5px;background-color:#325578}
 #saveGraphic{margin-left:45px;cursor:pointer;display:inline;height:20px}#TransSlider{display:inline-table !important;vertical-align:text-top}

@@ -6847,23 +6847,8 @@ html, body{
   width: 100%;
 }
 
-/* basemap button styling*/
-#basemapButton {
-	position:absolute;
-	right:10px;
-	top:60px;
-	z-index:500;
-}
-
-.claro .dijitTitlePane .dijitArrowNode {
-    background-image: url("./assets/images/i_basemap.png");
-    background-repeat: no-repeat;
-    height: 8px;
-    width: 7px;
-}
-
 .digitDojoContentPane{
-  width:385px;
+  width:150px;
   height: 250px;
   overflow: auto;
 }
@@ -7566,8 +7551,50 @@ div.esriBookmarkItem.esriAddBookmark:hover {
 	background-color: rgba(57,98,140,.9);
 }
 
+/* basemap button styling*/
+#basemapButton {
+	position:absolute;
+  left: 20px;
+	top:135px;
+	z-index:500;
+}
+.claro .dijitTitlePaneTitle {
+	background-image: url("C:/Users/Jeff/Documents/GitHub/RECOVER/src/client/assets/images/i_basemap.png");
+	background-repeat: no-repeat;
+	background-size: 22px;
+	background-color: #FFF;
+	background-position: center;
+	height: 30px;
+	width: 32px;
+	border-radius: 5px;
+	border: 1px solid #57585A;
+
+}
+
+.claro .dijitTitlePaneContentInner {
+	padding: 2px;
+  border-radius: 5px;
+}
+
+.claro .dijitTitlePaneContentOuter{
+	background-color: transparent;
+	border:none;
+}
+
+.claro .dijitTitlePaneTitleOpen, .claro .dijitTitlePaneTitleFixedOpen {
+    background-color: #cfe5fa;
+}
+
+.claro .dijitTitlePaneTextNode, .claro .dijitFieldsetLegendNode {
+	display: none;
+}
+
 .dijitButton{
 	margin: 0;
+}
+
+.claro .dijitTitlePane .dijitArrowNode {
+	display: none;
 }
 
 .image-upload > input
