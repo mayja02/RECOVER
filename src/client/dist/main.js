@@ -256,6 +256,8 @@ var widgets;
         $('body').removeClass("modal-open");
         $(".modal-backdrop.in").remove();
         $("#GSCCModal").remove();
+        $("#LyrListImg").addClass("selected");
+        document.getElementById("LyrWidget").style.display = "block";
     });
 
 

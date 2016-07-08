@@ -100,11 +100,11 @@ html, body{
     left: 60px;
   }
 
-  .digitDojoContentPane{
-    width: 150px;
+  #basemapButton{
+    left: 60px !important;
   }
 
-  #search{
-    visibility: hidden;
+  .digitDojoContentPane{
+    width: 150px;
   }
 }

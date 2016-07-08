@@ -48,10 +48,8 @@
           <h6>Rehabilitation Capability Convergence for Ecosystem Recovery</h6></dd>
       </dl>
 
-
-
       <dl id="tools" class="nav navbar">
-        <dd class="tooltips"><img id="LyrListImg" class="selected" src="assets\images\i_layers.png" />
+        <dd class="tooltips"><img id="LyrListImg" src="assets\images\i_layers.png" />
           <figcaption>Layer List</figcaption>
         </dd>
         <dd class="tooltips"><img id="SwipeImg" src="assets\images\i_swipe.png" />
@@ -95,6 +93,73 @@
   </nav>
   <!-- end navBar -->
 
+  <!--Modal to display on page load-->
+  <div id="GSCCModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">Welcome to the <span id="ModalLogo"><img src="assets/images/OfficialRECOVERlogo_sm.png" alt=""></span> Decision Support System</h4>
+        </div>
+
+        <ul class="nav nav-tabs" id="myTab">
+          <li class="active"> <a data-toggle="tab" data-target="#about">About</a></li>
+          <li><a data-toggle="tab" data-target="#disclaimer">Disclaimer</a></li>
+          <li><a data-toggle="tab" data-target="#credits">Credits</a></li>
+        </ul>
+
+        <div class="tab-content">
+          <div id="about" class="tab-pane active">
+            <p>Developed upon Esri’s ArcGIS API for Javascript, the RECOVER web map client will enable end-users to consume a mashup of web services applicable to a specific wildfire event.
+              <br><br> The graphical user interface will use a customized widget to enable the end-user to interact with the mapping application by assigning weighted values to selected layers such as fire intensity, fire severity, soils, soil moisture,
+              and wildlife habitat. The custom values will then be automatically processed using a geoprocessing service. The results will enable the end-user to formulate a more informed rehabilitation and monitoring plan for the burned areas in question.</p>
+          </div>
+          <div id="disclaimer" class="tab-pane">
+            <p><em>All content provided by the RECOVER Decision Support System (DSS) is for informational
+            purposes only. NASA and Idaho State University as stewards of RECOVER DSS will not be
+            liable for any errors or omissions in the data and information provided nor for the availability of
+            this information.<br><br>
+
+            The stewards have made every attempt to ensure the accuracy and reliability of the information
+            provided on this website. However, the information is provided "as is" without warranty of any
+            kind. The stewards do not accept any responsibility or liability for the accuracy, content,
+            completeness, legality, or reliability of the information contained on this website.
+            No warranties, promises and/or representations of any kind, expressed or implied, are given as to
+            the nature, standard, accuracy or otherwise of the information provided in this website nor to the
+            suitability or otherwise of the information to your particular circumstances.
+            The stewards shall not be liable for any loss or damage of whatever nature (direct, indirect,
+            consequential, or other) whether arising in contract, tort or otherwise, which may arise as a result
+            of your use of (or inability to use) this website, or from your use of (or failure to use) the
+            information on this site.<br><br>
+
+            This website provides links to other websites owned by third parties. The content of such third
+            party sites is not within our control, and we cannot and will not take responsibility for the
+            information or content thereon. Links to such third party sites are not to be taken as an
+            endorsement by the stewards of the third party site, or any products promoted, offered or sold on
+            the third party site, nor that such third party sites are free from computer viruses or anything else
+            that has destructive properties. We cannot and do not take responsibility for the collection or use
+            of personal data from any third party site. In addition, we will not accept responsibility for the
+            accuracy of third party advertisements.</em></p>
+          </div>
+          <div id="credits" class="tab-pane">
+            <p>We wish to thank the following groups for their contributions and efforts to make the RECOVER web application available to you.
+              <br><br> Developers
+              <br><br>
+              <em>- Idaho State University GIS TReC<br>
+              - NASA Goddard Space Flight Center</em>
+              <br><br> Operational End Users
+              <br><br>
+              <em>- United States Bureau of Land Management<br>
+              - Idaho Department of Lands</em></p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="close_modal" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal -->
+
   <!-- Swipe element, targeted by swipe.js -->
   <div id="swipeDiv"></div>
 
@@ -111,75 +176,10 @@
 
 
 
-    <!--Modal to display on page load-->
-    <div id="GSCCModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title" id="myModalLabel">Welcome to the <span id="ModalLogo"><img src="assets/images/OfficialRECOVERlogo_sm.png" alt=""></span> Decision Support System</h4>
-          </div>
 
-          <ul class="nav nav-tabs" id="myTab">
-            <li class="active"> <a data-toggle="tab" data-target="#about">About</a></li>
-            <li><a data-toggle="tab" data-target="#disclaimer">Disclaimer</a></li>
-            <li><a data-toggle="tab" data-target="#credits">Credits</a></li>
-          </ul>
-
-          <div class="tab-content">
-            <div id="about" class="tab-pane active">
-              <p>Developed upon Esri’s ArcGIS API for Javascript, the RECOVER web map client will enable end-users to consume a mashup of web services applicable to a specific wildfire event.
-                <br><br> The graphical user interface will use a customized widget to enable the end-user to interact with the mapping application by assigning weighted values to selected layers such as fire intensity, fire severity, soils, soil moisture,
-                and wildlife habitat. The custom values will then be automatically processed using a geoprocessing service. The results will enable the end-user to formulate a more informed rehabilitation and monitoring plan for the burned areas in question.</p>
-            </div>
-            <div id="disclaimer" class="tab-pane">
-              <p><em>All content provided by the RECOVER Decision Support System (DSS) is for informational
-              purposes only. NASA and Idaho State University as stewards of RECOVER DSS will not be
-              liable for any errors or omissions in the data and information provided nor for the availability of
-              this information.<br><br>
-
-              The stewards have made every attempt to ensure the accuracy and reliability of the information
-              provided on this website. However, the information is provided "as is" without warranty of any
-              kind. The stewards do not accept any responsibility or liability for the accuracy, content,
-              completeness, legality, or reliability of the information contained on this website.
-              No warranties, promises and/or representations of any kind, expressed or implied, are given as to
-              the nature, standard, accuracy or otherwise of the information provided in this website nor to the
-              suitability or otherwise of the information to your particular circumstances.
-              The stewards shall not be liable for any loss or damage of whatever nature (direct, indirect,
-              consequential, or other) whether arising in contract, tort or otherwise, which may arise as a result
-              of your use of (or inability to use) this website, or from your use of (or failure to use) the
-              information on this site.<br><br>
-
-              This website provides links to other websites owned by third parties. The content of such third
-              party sites is not within our control, and we cannot and will not take responsibility for the
-              information or content thereon. Links to such third party sites are not to be taken as an
-              endorsement by the stewards of the third party site, or any products promoted, offered or sold on
-              the third party site, nor that such third party sites are free from computer viruses or anything else
-              that has destructive properties. We cannot and do not take responsibility for the collection or use
-              of personal data from any third party site. In addition, we will not accept responsibility for the
-              accuracy of third party advertisements.</em></p>
-            </div>
-            <div id="credits" class="tab-pane">
-              <p>We wish to thank the following groups for their contributions and efforts to make the RECOVER web application available to you.
-                <br><br> Developers
-                <br><br>
-                <em>- Idaho State University GIS TReC<br>
-                - NASA Goddard Space Flight Center</em>
-                <br><br> Operational End Users
-                <br><br>
-                <em>- United States Bureau of Land Management<br>
-                - Idaho Department of Lands</em></p>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button id="close_modal" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Modal -->
 
     <!-- start Lyrwidget -->
-    <div id="LyrWidget" class="widget_container" style="position: absolute; top: 150px; left: 75px">
+    <div id="LyrWidget" class="widget_container" style="display: none; position: absolute; top: 150px; left: 75px">
       <div id="LyrListTitle" class="widget_title"><img class="widgetIcon" src="assets\images\i_layers.png"><label for="LyrListTitle">Layer List & Legend</label>
         <button type="button" name="button" id="CloseLyrWidget" class="close remove"><img src="assets/images/w_close.png"</button>
         <button type="button" name="button" id="MinLyrWidget" class="close minimize"><img src="assets/images/w_min.png"</button>
