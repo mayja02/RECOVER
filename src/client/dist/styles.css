@@ -6763,6 +6763,7 @@ button.close {
 
 .loading-indicator {
     /* Loading status */
+    top: 0;
     display: block;
     height: 100%;
     width: 100%;
@@ -6791,7 +6792,7 @@ button.close {
     width: 100%;
     position: absolute;
     z-index: 1001;
-    top: 40%;
+    top: 0;
     left: 0;
     text-align: center;
 }
@@ -7245,9 +7246,19 @@ nav .tooltips img{
 
 #GSCCModal{
   margin: auto;
-  top: 10%;
-  width: 350px;
+  top: 5%;
+  bottom: 5%;
   opacity: 1;
+  text-align: center;
+  width: 80%;
+  border-radius: 10px;
+  border: 3px solid #CEE7F4;
+  color: #CEE7F4;
+  background-color: #39628C;
+  max-width: 550px;
+  min-width: 311px;
+  max-height: 500px;
+  min-height: 263px;
 }
 
 #ModalLogo{
@@ -7261,49 +7272,38 @@ nav .tooltips img{
      zoom:1; /* hasLayout ie7 trigger */
 }
 
-.nav-tabs, .nav-pills {
-  text-align:center;
-}
-
-.modal{
-  overflow: visible;
-
-}
-
-.modal-dialog{
-  text-align: center;
-  width: auto;
-  border-radius: 10px;
-  color: #CEE7F4;
-}
-
-.modal-content{
-  background-color: #39628C;
-}
-
-.modal-body{
-  text-align: left;
-}
-
-.modal-footer{
-  text-align: center;
-}
-
 .modal-title img{
   padding: 5px 0;
 }
 
 .modal-header{
+  padding: 0;
+  padding-top: 15px;
+  position:absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
   border: none;
 }
 
 .tab-content {
-  padding: 10px;
-  height: 270px;
-  max-height: 270px;
-  height: auto;
+  height: 100%;
   overflow: auto;
-  text-align: left;
+  padding: 0 20px;
+}
+
+.modal-footer{
+  position: absolute;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+.scrollable{
+  padding: 162px 0 55px 0;
+  height: 100%;
+  width: 100%;
 }
 
 .nav>li>a{
@@ -7314,6 +7314,9 @@ nav .tooltips img{
   margin: 0 1px;
 }
 
+.nav-tabs{
+  padding-top: 15px;
+}
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover {
   background-color: #39628C;
   color: inherit;
@@ -7324,12 +7327,9 @@ nav .tooltips img{
   cursor: pointer;
 }
 
-@media (max-width: 480px){
-  #GSCCModal{
-
-  }
-
-
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 form {

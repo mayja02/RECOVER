@@ -1,5 +1,6 @@
 .loading-indicator {
     /* Loading status */
+    top: 0;
     display: block;
     height: 100%;
     width: 100%;
@@ -28,7 +29,7 @@
     width: 100%;
     position: absolute;
     z-index: 1001;
-    top: 40%;
+    top: 0;
     left: 0;
     text-align: center;
 }

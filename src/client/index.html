@@ -95,26 +95,25 @@
 
   <!--Modal to display on page load-->
   <div id="GSCCModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
+    <!--<div class="modal-dialog">
+      <div class="modal-content">-->
         <div class="modal-header">
           <h4 class="modal-title" id="myModalLabel">Welcome to the <span id="ModalLogo"><img src="assets/images/OfficialRECOVERlogo_sm.png" alt=""></span> Decision Support System</h4>
+          <ul class="nav nav-tabs" id="myTab">
+            <li class="active"> <a data-toggle="tab" data-target="#about">About</a></li>
+            <li><a data-toggle="tab" data-target="#disclaimer">Disclaimer</a></li>
+            <li><a data-toggle="tab" data-target="#credits">Credits</a></li>
+          </ul>
         </div>
-
-        <ul class="nav nav-tabs" id="myTab">
-          <li class="active"> <a data-toggle="tab" data-target="#about">About</a></li>
-          <li><a data-toggle="tab" data-target="#disclaimer">Disclaimer</a></li>
-          <li><a data-toggle="tab" data-target="#credits">Credits</a></li>
-        </ul>
-
+        <div class="scrollable">
         <div class="tab-content">
           <div id="about" class="tab-pane active">
-            <p>Developed upon Esri’s ArcGIS API for Javascript, the RECOVER web map client will enable end-users to consume a mashup of web services applicable to a specific wildfire event.
+            <p><br>Developed upon Esri’s ArcGIS API for Javascript, the RECOVER web map client will enable end-users to consume a mashup of web services applicable to a specific wildfire event.
               <br><br> The graphical user interface will use a customized widget to enable the end-user to interact with the mapping application by assigning weighted values to selected layers such as fire intensity, fire severity, soils, soil moisture,
               and wildlife habitat. The custom values will then be automatically processed using a geoprocessing service. The results will enable the end-user to formulate a more informed rehabilitation and monitoring plan for the burned areas in question.</p>
           </div>
           <div id="disclaimer" class="tab-pane">
-            <p><em>All content provided by the RECOVER Decision Support System (DSS) is for informational
+            <p><br><em>All content provided by the RECOVER Decision Support System (DSS) is for informational
             purposes only. NASA and Idaho State University as stewards of RECOVER DSS will not be
             liable for any errors or omissions in the data and information provided nor for the availability of
             this information.<br><br>
@@ -141,7 +140,7 @@
             accuracy of third party advertisements.</em></p>
           </div>
           <div id="credits" class="tab-pane">
-            <p>We wish to thank the following groups for their contributions and efforts to make the RECOVER web application available to you.
+            <p><br>We wish to thank the following groups for their contributions and efforts to make the RECOVER web application available to you.
               <br><br> Developers
               <br><br>
               <em>- Idaho State University GIS TReC<br>
@@ -152,10 +151,11 @@
               - Idaho Department of Lands</em></p>
           </div>
         </div>
+      </div>
         <div class="modal-footer">
           <button id="close_modal" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
+        <!--</div>
+      </div>-->
     </div>
   </div>
   <!-- End Modal -->

@@ -811,9 +811,9 @@ tr.visible-print{display:table-row !important}th.visible-print,td.visible-print{
 }.visible-print-block{display:none !important}@media print{.visible-print-block{display:block !important}
 }.visible-print-inline{display:none !important}@media print{.visible-print-inline{display:inline !important}
 }.visible-print-inline-block{display:none !important}@media print{.visible-print-inline-block{display:inline-block !important}
-}@media print{.hidden-print{display:none !important}}.loading-indicator{display:block;height:100%;width:100%;z-index:100000;position:absolute;overflow:hidden;background:#fff}
+}@media print{.hidden-print{display:none !important}}.loading-indicator{top:0;display:block;height:100%;width:100%;z-index:100000;position:absolute;overflow:hidden;background:#fff}
 .app-loading .loading-indicator,.app-error .loading-indicator{display:block}.app-loading .loading-indicator{background-position:center center;background-repeat:no-repeat}
-.app-error .loading-message{background-position:top center;background-repeat:no-repeat;padding-top:60px;width:100%;position:absolute;z-index:1001;top:40%;left:0;text-align:center}
+.app-error .loading-message{background-position:top center;background-repeat:no-repeat;padding-top:60px;width:100%;position:absolute;z-index:1001;top:0;left:0;text-align:center}
 .busyImage{display:block;width:100%;height:100%;font-size:28px;top:30%;color:#39628a;font-style:oblique;position:absolute;z-index:100001;object-position:center;text-align:center}
 .busyImage img.center{margin:0 auto;display:block}@media(max-width:480px){.app-error .loading-message{top:0}
 .loading-indicator{top:0;display:absolute;width:100%;height:100%}}.claro{overflow:hidden}
@@ -847,15 +847,15 @@ dd{text-align:right}.navbar-nav>li{float:none}.navbar-nav>li>a{padding-top:10px;
 @media(max-width:1400px){#tools{float:right}}@media(max-width:770px){#tools{position:fixed;display:block;padding-top:0;left:0;top:48px;width:45px;background-color:rgba(57,98,140,1);box-shadow:2px 3px 3px 0 #0d0d0d;border-bottom-right-radius:10px;border-top:0}
 .tooltips{display:flex;padding-top:5px}.tooltips figcaption{color:#cee7f4;background:#39628c;box-shadow:0 4px 3px #2b3856;border-radius:24px;position:static;display:inline-table;width:115px;margin-left:-2px;margin-top:5px;text-align:center;visibility:hidden}
 .tooltips figcaption:after{display:none}}@media(max-width:461px){h6{text-align:left;font-size:10px}
-h3{font-size:18px}}@media(max-width:402px){h3{width:180px}h6{display:none}}#GSCCModal{margin:auto;top:10%;width:350px;opacity:1}
+h3{font-size:18px}}@media(max-width:402px){h3{width:180px}h6{display:none}}#GSCCModal{margin:auto;top:5%;bottom:5%;opacity:1;text-align:center;width:80%;border-radius:10px;border:3px solid #cee7f4;color:#cee7f4;background-color:#39628c;max-width:550px;min-width:311px;max-height:500px;min-height:263px}
 #ModalLogo{display:block}.nav-tabs>li,.nav-pills>li{float:none;display:inline-block;*display:inline;zoom:1}
-.nav-tabs,.nav-pills{text-align:center}.modal{overflow:visible}.modal-dialog{text-align:center;width:auto;border-radius:10px;color:#cee7f4}
-.modal-content{background-color:#39628c}.modal-body{text-align:left}.modal-footer{text-align:center}
-.modal-title img{padding:5px 0}.modal-header{border:0}.tab-content{padding:10px;height:270px;max-height:270px;height:auto;overflow:auto;text-align:left}
-.nav>li>a{line-height:1;background-color:#33587e;border:0;padding:8px 13px;margin:0 1px}
-.nav-tabs>li.active>a,.nav-tabs>li.active>a:hover{background-color:#39628c;color:inherit;cursor:default}
-.nav-tabs>li>a:hover{cursor:pointer}@media(max-width:480px){}form{display:table}form p{display:table-row;padding-top:7px;line-height:15px}
-form label{padding-left:10px}form input,form select{margin:4px 0;display:table-cell;background-color:#759dc0;border:1px solid #888}
+.modal-title img{padding:5px 0}.modal-header{padding:0;padding-top:15px;position:absolute;width:100%;top:0;left:0;border:0}
+.tab-content{height:100%;overflow:auto;padding:0 20px}.modal-footer{position:absolute;text-align:center;padding:10px;width:100%;bottom:0;left:0}
+.scrollable{padding:162px 0 55px 0;height:100%;width:100%}.nav>li>a{line-height:1;background-color:#33587e;border:0;padding:8px 13px;margin:0 1px}
+.nav-tabs{padding-top:15px}.nav-tabs>li.active>a,.nav-tabs>li.active>a:hover{background-color:#39628c;color:inherit;cursor:default}
+.nav-tabs>li>a:hover{cursor:pointer}.modal-open .modal{overflow-x:hidden;overflow-y:hidden}
+form{display:table}form p{display:table-row;padding-top:7px;line-height:15px}form label{padding-left:10px}
+form input,form select{margin:4px 0;display:table-cell;background-color:#759dc0;border:1px solid #888}
 form select{border-radius:3px}.inline{display:inline}.widgetIcon{position:fixed;margin:-2px -21px;height:30px}
 .widget_title label{padding-left:12px}.agsjsTOCLegendLabel{padding-left:20px}.agsjsTOCIcon{vertical-align:middle;width:20px !important}
 .esriBookmarks,.esriBookmarks .dojoDndItem{border:0}.esriBookmarkLabel{color:#cee7f4}
