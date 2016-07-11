@@ -4299,9 +4299,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   float: right;
   padding: 9px 10px;
   margin-top: 8px;
-  margin-right: 15px;
-  margin-bottom: 8px;
-  background-color: transparent;
   background-image: none;
   border: 1px solid transparent;
   border-radius: 4px;
@@ -6858,6 +6855,10 @@ html, body{
   background-color: #CEE7F4;
 }
 
+.esriControlsBR{
+  display: none;
+}
+
 /* scale bar styles */
 
 .esriScalebarEnglishLine {
@@ -6904,13 +6905,6 @@ html, body{
   letter-spacing: 0px;
 }
 
-#search {
-  position: fixed;
-  z-index: 2;
-  top: 70px;
-  left: 65px;
-}
-
 #info {
 	position:fixed;
 	left:25px;
@@ -6928,19 +6922,13 @@ html, body{
     0 1px 0 #ffffff,
     0 -1px 0 #ffffff;
 }
-
-@media (max-width: 785px ){
-  .esriSimpleSliderTL{
-    left: 60px;
-  }
-
-  #basemapButton{
-    left: 60px !important;
-  }
-
   .digitDojoContentPane{
     width: 150px;
   }
+
+.esriSimpleSliderTL {
+  top: 10px;
+  left: 13px;
 }
 
 body{
@@ -6954,6 +6942,7 @@ nav .container-fluid {
 
 .navbar{
   margin-bottom: 0;
+  min-height: 0;
 }
 nav .navbar-brand{
   padding: 0;
@@ -6967,7 +6956,6 @@ nav .navbar-brand>img {
   background-color: #39628C;
   color: #CEE7F4;
 	box-shadow    : 0 3px 10px 0 #0d0d0d;
-  height        : 42px;
   border: none;
 }
 
@@ -7067,21 +7055,17 @@ nav .tooltips img{
   border-left: 8px solid transparent;
 }
 
+.tooltips:hover {
+  cursor: pointer;
+}
 .tooltips:hover figcaption{
   visibility: visible;
 }
-/* animate hamburger */
-
-
-
-
-/*stylings to collapse navbar and reformat header as screen resuolution changes */
 
 .container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
      margin-right: 0px;
      margin-left: 0px;
 }
-
 
   .navbar-header {
       float: none;
@@ -7108,7 +7092,6 @@ nav .tooltips img{
   }
 
   .navbar-right{
-    /*float: right!important;*/
     margin-right: -15px;
     display: inline;
   }
@@ -7122,7 +7105,7 @@ nav .tooltips img{
   }
 
   .navbar-toggle{
-    margin-right: 0;
+    right: -7px;
   }
 
   .navbar-collapse {
@@ -7166,7 +7149,7 @@ nav .tooltips img{
     background-color: rgba(57,98,140,.9);
     border-bottom-left-radius: 10px;
     right: 0;
-    top: 51px;
+    top: 50px;
     margin: 0 auto;
     overflow: hidden;
   }
@@ -7174,27 +7157,22 @@ nav .tooltips img{
   @media (max-width: 1400px){
     #tools{
       float: right;
+      padding-left: 55px;
     }
   }
 
 
-@media (max-width: 770px) {
+@media (max-width: 735px) {
   #tools{
     position: fixed;
-    display: block;
-    padding-top: 0;
-    left: 0;
+    padding-left: 0;
+    right: 0;
     top: 48px;
-    width: 45px;
     background-color: rgba(57,98,140,1);
-    box-shadow    : 2px 3px 3px 0 #0d0d0d;
-    border-bottom-right-radius: 10px;
+    box-shadow    : -2px 3px 3px 0 #0d0d0d;
+    border-bottom-left-radius: 10px;
     border-top: none;
-  }
-
-  .tooltips {
-    display: flex;
-    padding-top: 5px;
+    width: 243px;
   }
 
 
@@ -7203,9 +7181,9 @@ nav .tooltips img{
     background: #39628C;
     box-shadow: 0 4px 3px #2B3856;
     border-radius: 24px;
-    position: static;
+    position: fixed;
     display: inline-table;
-    width: 115px;
+    width: 241px;
     margin-left: -2px;
     margin-top: 5px;
     text-align: center;
@@ -7217,14 +7195,8 @@ nav .tooltips img{
   }
 }
 
-@media (max-width: 463px){
-
-
-}
-
-@media (max-width: 461px){
+@media (max-width: 495px){
   h6{
-    /*display: none;*/
     text-align: left;
     font-size: 10px;
   }
@@ -7234,13 +7206,24 @@ nav .tooltips img{
   }
 }
 
-@media (max-width: 402px){
+@media (max-width: 440px){
   h3 {
     width: 180px;
   }
 
   h6{
     display: none;
+  }
+
+  #tools {
+    padding: 0;
+    height: 25px;
+    width: 182px;
+    }
+
+  nav .tooltips img{
+    padding-top: 5px;
+    height: 25px;
   }
 }
 
@@ -7354,6 +7337,10 @@ form input, form select {
 
 }
 
+input[type="file"] {
+	width: 250px;
+}
+
 form select{
 	border-radius: 3px;
 }
@@ -7427,6 +7414,8 @@ div.esriBookmarkItem.esriAddBookmark:hover {
 	font-size: 9pt;
   border: 1px solid #CEE7F4;
   border-radius: 4px;
+	max-width:284px;
+	max-height: 300px;
 
 }
 
@@ -7552,8 +7541,8 @@ div.esriBookmarkItem.esriAddBookmark:hover {
 /* basemap button styling*/
 #basemapButton {
 	position:absolute;
-  left: 20px;
-	top:135px;
+  left: 13px;
+	top:125px;
 	z-index:500;
 }
 .claro .dijitTitlePaneTitle {

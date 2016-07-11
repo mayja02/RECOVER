@@ -24,6 +24,10 @@ html, body{
   background-color: #CEE7F4;
 }
 
+.esriControlsBR{
+  display: none;
+}
+
 /* scale bar styles */
 
 .esriScalebarEnglishLine {
@@ -70,13 +74,6 @@ html, body{
   letter-spacing: 0px;
 }
 
-#search {
-  position: fixed;
-  z-index: 2;
-  top: 70px;
-  left: 65px;
-}
-
 #info {
 	position:fixed;
 	left:25px;
@@ -94,17 +91,11 @@ html, body{
     0 1px 0 #ffffff,
     0 -1px 0 #ffffff;
 }
-
-@media (max-width: 785px ){
-  .esriSimpleSliderTL{
-    left: 60px;
-  }
-
-  #basemapButton{
-    left: 60px !important;
-  }
-
   .digitDojoContentPane{
     width: 150px;
   }
+
+.esriSimpleSliderTL {
+  top: 10px;
+  left: 13px;
 }

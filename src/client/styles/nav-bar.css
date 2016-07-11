@@ -9,6 +9,7 @@ nav .container-fluid {
 
 .navbar{
   margin-bottom: 0;
+  min-height: 0;
 }
 nav .navbar-brand{
   padding: 0;
@@ -22,7 +23,6 @@ nav .navbar-brand>img {
   background-color: #39628C;
   color: #CEE7F4;
 	box-shadow    : 0 3px 10px 0 #0d0d0d;
-  height        : 42px;
   border: none;
 }
 
@@ -122,21 +122,17 @@ nav .tooltips img{
   border-left: 8px solid transparent;
 }
 
+.tooltips:hover {
+  cursor: pointer;
+}
 .tooltips:hover figcaption{
   visibility: visible;
 }
-/* animate hamburger */
-
-
-
-
-/*stylings to collapse navbar and reformat header as screen resuolution changes */
 
 .container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
      margin-right: 0px;
      margin-left: 0px;
 }
-
 
   .navbar-header {
       float: none;
@@ -163,7 +159,6 @@ nav .tooltips img{
   }
 
   .navbar-right{
-    /*float: right!important;*/
     margin-right: -15px;
     display: inline;
   }
@@ -177,7 +172,7 @@ nav .tooltips img{
   }
 
   .navbar-toggle{
-    margin-right: 0;
+    right: -7px;
   }
 
   .navbar-collapse {
@@ -221,7 +216,7 @@ nav .tooltips img{
     background-color: rgba(57,98,140,.9);
     border-bottom-left-radius: 10px;
     right: 0;
-    top: 51px;
+    top: 50px;
     margin: 0 auto;
     overflow: hidden;
   }
@@ -229,27 +224,22 @@ nav .tooltips img{
   @media (max-width: 1400px){
     #tools{
       float: right;
+      padding-left: 55px;
     }
   }
 
 
-@media (max-width: 770px) {
+@media (max-width: 735px) {
   #tools{
     position: fixed;
-    display: block;
-    padding-top: 0;
-    left: 0;
+    padding-left: 0;
+    right: 0;
     top: 48px;
-    width: 45px;
     background-color: rgba(57,98,140,1);
-    box-shadow    : 2px 3px 3px 0 #0d0d0d;
-    border-bottom-right-radius: 10px;
+    box-shadow    : -2px 3px 3px 0 #0d0d0d;
+    border-bottom-left-radius: 10px;
     border-top: none;
-  }
-
-  .tooltips {
-    display: flex;
-    padding-top: 5px;
+    width: 243px;
   }
 
 
@@ -258,9 +248,9 @@ nav .tooltips img{
     background: #39628C;
     box-shadow: 0 4px 3px #2B3856;
     border-radius: 24px;
-    position: static;
+    position: fixed;
     display: inline-table;
-    width: 115px;
+    width: 241px;
     margin-left: -2px;
     margin-top: 5px;
     text-align: center;
@@ -272,14 +262,8 @@ nav .tooltips img{
   }
 }
 
-@media (max-width: 463px){
-
-
-}
-
-@media (max-width: 461px){
+@media (max-width: 495px){
   h6{
-    /*display: none;*/
     text-align: left;
     font-size: 10px;
   }
@@ -289,12 +273,23 @@ nav .tooltips img{
   }
 }
 
-@media (max-width: 402px){
+@media (max-width: 440px){
   h3 {
     width: 180px;
   }
 
   h6{
     display: none;
+  }
+
+  #tools {
+    padding: 0;
+    height: 25px;
+    width: 182px;
+    }
+
+  nav .tooltips img{
+    padding-top: 5px;
+    height: 25px;
   }
 }

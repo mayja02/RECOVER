@@ -65,7 +65,7 @@ var widgets;
         'handle': item.handle,
         'area': map,
         'within': true,
-        'delay': '20px'
+        'delay': '10px'
       });
       // make widget opaque on title drag
       item.handle.addEventListener("mousedown", function(){
@@ -105,7 +105,6 @@ var widgets;
     window.map = map;
 
     baseLyrs = new ArcGISDynamicMapServiceLayer("http://fuji.giscenter.isu.edu/arcgis/rest/services/RECOVER_"+"crystalFire_ID"+"/basemap/MapServer");
-    //RealTimeLyr = new FeatureLayer("http://services1.arcgis.com/z5tlnpYHokW9isdE/arcgis/rest/services/RECOVER_RT/FeatureServer");
     FireSeverity = new FeatureLayer("http://services1.arcgis.com/z5tlnpYHokW9isdE/arcgis/rest/services/RECOVER_RT/FeatureServer/0");
     FireLine = new FeatureLayer("http://services1.arcgis.com/z5tlnpYHokW9isdE/arcgis/rest/services/RECOVER_RT/FeatureServer/2");
     FireRecords = new FeatureLayer("http://services1.arcgis.com/z5tlnpYHokW9isdE/arcgis/rest/services/RECOVER_RT/FeatureServer/1");
@@ -311,6 +310,8 @@ var widgets;
             // change widget container display depending on if container has class="selected"
             if (item.icon.hasClass("selected")) {
                 item.widget.style.display = "block";
+                item.widget.style.left = "18px";
+                item.widget.style.top = "173px";
             }
             else {
                 item.widget.style.display = "none";
@@ -701,21 +702,21 @@ var Lat, Long, linelength, selectedTrans, graphic, point2, curcount;
       var saveGraphic = query("#saveGraphic");
       saveGraphic.on("click", function() {
          console.log('saving graphics');
-        
+
         //loop through the graphics:
 
         var jsonval = "{";
         var graphicsArr = map.graphics.graphics;
-        
+
         graphicsArr.forEach(function (graphic, index, array) {
             var type = typeof(graphic);
             var graphicObj = {};
-            
+
             graphicObj.geometry = graphic.geometry;
             graphicObj.symbol   = graphic.symbol;
-            
-            console.log(graphic, type)
-            console.log(graphic.symbol)
+
+            console.log(graphic, type);
+            console.log(graphic.symbol);
             var jsonObj = JSON.stringify(graphic.toJson());
             jsonval += "\"" + index + "\":" + dojo.toJson(graphic.toJson())  + ",";
         });
@@ -740,9 +741,9 @@ var Lat, Long, linelength, selectedTrans, graphic, point2, curcount;
         a.href = url;
       });
       //
-      
+
       //get json string from uploaded file using File API
-      var input = query('#file-input')
+      var input = query('#file-input');
       input.on("change", function(evt) {
         if (!window.FileReader)
           return; // Browser is not compatible
@@ -777,7 +778,7 @@ var Lat, Long, linelength, selectedTrans, graphic, point2, curcount;
 
       //On Load function/////////////////////////////////////////////
       var drawImg = dom.byId("DrawImg");
-      
+
       on(drawImg, "click", function() {
         if(dojo.hasClass(drawImg, 'selected') ===true){
           toolbar = new Draw(map);

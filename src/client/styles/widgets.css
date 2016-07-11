@@ -20,6 +20,10 @@ form input, form select {
 
 }
 
+input[type="file"] {
+	width: 250px;
+}
+
 form select{
 	border-radius: 3px;
 }
@@ -93,6 +97,8 @@ div.esriBookmarkItem.esriAddBookmark:hover {
 	font-size: 9pt;
   border: 1px solid #CEE7F4;
   border-radius: 4px;
+	max-width:284px;
+	max-height: 300px;
 
 }
 
@@ -218,8 +224,8 @@ div.esriBookmarkItem.esriAddBookmark:hover {
 /* basemap button styling*/
 #basemapButton {
 	position:absolute;
-  left: 20px;
-	top:135px;
+  left: 13px;
+	top:125px;
 	z-index:500;
 }
 .claro .dijitTitlePaneTitle {
