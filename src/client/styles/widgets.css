@@ -229,7 +229,7 @@ div.esriBookmarkItem.esriAddBookmark:hover {
 	z-index:500;
 }
 .claro .dijitTitlePaneTitle {
-	background-image: url("C:/Users/Jeff/Documents/GitHub/RECOVER/src/client/assets/images/i_basemap.png");
+	background-image: url("../assets/images/i_basemap.png");
 	background-repeat: no-repeat;
 	background-size: 22px;
 	background-color: #FFF;

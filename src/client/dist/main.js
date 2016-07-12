@@ -111,7 +111,15 @@ var widgets;
     // fireAffectedVegetation = new ArcGISDynamicMapServiceLayer("http://fuji.giscenter.isu.edu/arcgis/rest/services/RECOVER/Soda_Fire_Affected_Vegetation/MapServer");
 
     map.on("load", function(){
-    map.addLayers([FireSeverity, FireRecords, FireLine, baseLyrs]);
+    map.addLayers([
+
+      FireSeverity,
+      FireRecords,
+      FireLine,
+      baseLyrs
+
+      ]);
+
     // map.addLayer(fireAffectedVegetation);
     });
 
@@ -121,22 +129,26 @@ var widgets;
     map.on('layers-add-result', function(evt){
             toc = new TOC({
               map: map,
-              layerInfos: [{
+              layerInfos: [
+                {
                 layer: FireSeverity,
                 title: "Fire Severity",
                 slider:true,
                 collapsed: true,
-              },{
+              },
+              {
                 layer: FireRecords,
                 title: "Fire Records",
                 slider:true,
                 collapsed: true,
-              }, {
+              },
+              {
                 layer: FireLine,
                 title: "Fire Line",
                 slider:true,
                 collapsed: true,
-              }, {
+              },
+              {
                 layer: baseLyrs,
                 title: "RECOVER Base Layers",
                 collapsed: true, // whether this root layer should be collapsed initially, default false.

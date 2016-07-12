@@ -875,7 +875,7 @@ div.esriBookmarkItem.esriAddBookmark:hover{background-color:#2a4866}.esriAddBook
 .toggle-items li{float:left;margin-right:10px;padding:5px 10px;cursor:pointer;background-color:#39628a;border-top-left-radius:6px;border-top-right-radius:6px;border-bottom-right-radius:6px;border-bottom-left-radius:6px;border:1px solid #cee7f4;text-indent:0;font-size:14px;color:#cee7f4;font-weight:bold;font-style:normal;text-decoration:none;text-align:center}
 .toggle-items li:hover{background-color:#2a4866}.toggle-items li:active{position:relative;top:1px}
 .claro .dijitCheckBox,.claro .dijitCheckBoxIcon{margin:5px 2px 5px 0}.claro .dijitButton .dijitButtonNode,.claro .dijitButtonText{border:0;padding:0;border-radius:0;box-shadow:0;background-color:rgba(57,98,140,.9)}
-#basemapButton{position:absolute;left:13px;top:125px;z-index:500}.claro .dijitTitlePaneTitle{background-image:url("C:/Users/Jeff/Documents/GitHub/RECOVER/src/client/assets/images/i_basemap.png");background-repeat:no-repeat;background-size:22px;background-color:#FFF;background-position:center;height:30px;width:32px;border-radius:5px;border:1px solid #57585a}
+#basemapButton{position:absolute;left:13px;top:125px;z-index:500}.claro .dijitTitlePaneTitle{background-image:url("../assets/images/i_basemap.png");background-repeat:no-repeat;background-size:22px;background-color:#FFF;background-position:center;height:30px;width:32px;border-radius:5px;border:1px solid #57585a}
 .claro .dijitTitlePaneContentInner{padding:2px;border-radius:5px}.claro .dijitTitlePaneContentOuter{background-color:transparent;border:0}
 .claro .dijitTitlePaneTitleOpen,.claro .dijitTitlePaneTitleFixedOpen{background-color:#cfe5fa}
 .claro .dijitTitlePaneTextNode,.claro .dijitFieldsetLegendNode{display:none}.dijitButton{margin:0}
