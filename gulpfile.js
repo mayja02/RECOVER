@@ -46,13 +46,13 @@ gulp.task('lib-optimize', function(){
   //concatenate js files and name new file "lib-main.js"
   .pipe(concat("lib.js"))
   //path to build
-  .pipe(gulp.dest('./src/client/lib/'))
+  .pipe(gulp.dest('./src/client/dist/'))
   //create a copy of main.js called "main.min.js" for minification
   .pipe(rename("lib.min.js"))
   //uglify min file
   .pipe(ugly())
 
-  .pipe(gulp.dest('./src/client/lib/'));
+  .pipe(gulp.dest('./src/client/dist/'));
 
   console.log('gulp is done');
 });

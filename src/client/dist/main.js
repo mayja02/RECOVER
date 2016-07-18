@@ -105,9 +105,15 @@ var widgets;
     window.map = map;
 
     baseLyrs = new ArcGISDynamicMapServiceLayer("http://fuji.giscenter.isu.edu/arcgis/rest/services/RECOVER_"+"crystalFire_ID"+"/basemap/MapServer");
-    FireSeverity = new FeatureLayer("http://services1.arcgis.com/z5tlnpYHokW9isdE/arcgis/rest/services/RECOVER_RT/FeatureServer/0");
-    FireLine = new FeatureLayer("http://services1.arcgis.com/z5tlnpYHokW9isdE/arcgis/rest/services/RECOVER_RT/FeatureServer/2");
-    FireRecords = new FeatureLayer("http://services1.arcgis.com/z5tlnpYHokW9isdE/arcgis/rest/services/RECOVER_RT/FeatureServer/1");
+    FireSeverity = new FeatureLayer("http://services1.arcgis.com/z5tlnpYHokW9isdE/arcgis/rest/services/RECOVER_RT/FeatureServer/0",{
+      mode: FeatureLayer.MODE_ONDEMAND
+    });
+    FireLine = new FeatureLayer("http://services1.arcgis.com/z5tlnpYHokW9isdE/arcgis/rest/services/RECOVER_RT/FeatureServer/2",{
+      mode: FeatureLayer.MODE_ONDEMAND
+    });
+    FireRecords = new FeatureLayer("http://services1.arcgis.com/z5tlnpYHokW9isdE/arcgis/rest/services/RECOVER_RT/FeatureServer/1",{
+      mode: FeatureLayer.MODE_ONDEMAND
+    });
     // fireAffectedVegetation = new ArcGISDynamicMapServiceLayer("http://fuji.giscenter.isu.edu/arcgis/rest/services/RECOVER/Soda_Fire_Affected_Vegetation/MapServer");
 
     map.on("load", function(){
@@ -331,15 +337,17 @@ var widgets;
         });
 
         //use close icon on widget container to remove widget container display and remove "selected" class from icon
-        $(item.widget).on("click", "button.remove", function() {
+        $(item.widget).on("click", "button.remove", function(e) {
+          e.stopPropagation();
             $(this).closest(".widget_container").hide();
             item.icon.removeClass("selected");
         }).removeClass("selected");
 
         // use minimize button to collapse widget container
         // on collapse, minimize button will change to expand button to restore origianl dimensions
-        $(item.widget).on("click", "button.minimize", function() {
+        $(item.widget).on("click", "button.minimize", function(e) {
             // $(this).find("img").attr("src", 'none');
+            e.stopPropagation();
             var container = $(this).closest(".widget_container");
             container.toggleClass("minimized");
             if (container.hasClass("minimized")) {
@@ -350,6 +358,33 @@ var widgets;
             }
         });
     });
+    function isTouchDevice(){
+	     try{
+    		document.createEvent("TouchEvent");
+    		return true;
+    	}catch(e){
+    		return false;
+    	}
+    }
+
+    function touchScroll(id){
+    	if(isTouchDevice()){ //if touch events exist...
+    		var el=document.getElementById(id);
+    		var scrollStartPos=0;
+
+    		document.getElementById(id).addEventListener("touchstart", function(event) {
+    			scrollStartPos=this.scrollTop+event.touches[0].pageY;
+
+    		},false);
+
+    		document.getElementById(id).addEventListener("touchmove", function(event) {
+    			this.scrollTop=scrollStartPos-event.touches[0].pageY;
+
+    		},false);
+    	}
+    }
+
+    touchScroll("tabs");
 }());
 
 (function() {
@@ -647,6 +682,7 @@ var selected, currentLocation, PolyArea, measureUnit, symbol;
 var Lat, Long, linelength, selectedTrans, graphic, point2, curcount;
 
 (function() {
+
   define("myModules/CustomOperation", [
     "dojo/_base/declare", "esri/OperationBase", "esri/toolbars/navigation"
   ], function(declare, OperationBase, Navigation) {
@@ -679,6 +715,8 @@ var Lat, Long, linelength, selectedTrans, graphic, point2, curcount;
     return customOp;
   });
 
+  // var CustomOperation = require('./myModules/CustomOperation');
+
   require(["dojo/parser", "dijit/form/CheckBox", "esri/toolbars/draw", "dojo/on", "dojo/dom", "dijit/registry", "dojo/_base/Color", "esri/graphic",
       "esri/symbols/SimpleMarkerSymbol", "esri/symbols/SimpleLineSymbol", "esri/symbols/SimpleFillSymbol", "dijit/form/NumberSpinner", "esri/toolbars/edit",
       "esri/geometry/jsonUtils", "dijit/Menu", "dijit/MenuItem", "dijit/MenuSeparator", "esri/geometry/Point", "dijit/form/TextBox", "esri/undoManager", "myModules/CustomOperation",
@@ -693,9 +731,9 @@ var Lat, Long, linelength, selectedTrans, graphic, point2, curcount;
       SpatialReference, domConstruct, connect, Font, TextSymbol, domStyle,
       popup, number, LengthsParameters, GeometryService, AreasAndLengthsParameters, array, config, HorizontalSlider, Select, PopupMenuItem, ColorPalette, query, JSON) {
 
-      parser.parse();
+      // parser.parse();
 
-      //esriConfig.defaults.io.corsDetection = false;
+      // esriConfig.defaults.io.corsDetection = false;
 
       var undoManager = new UndoManager();
 

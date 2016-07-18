@@ -3,6 +3,7 @@ var selected, currentLocation, PolyArea, measureUnit, symbol;
 var Lat, Long, linelength, selectedTrans, graphic, point2, curcount;
 
 (function() {
+
   define("myModules/CustomOperation", [
     "dojo/_base/declare", "esri/OperationBase", "esri/toolbars/navigation"
   ], function(declare, OperationBase, Navigation) {
@@ -35,6 +36,8 @@ var Lat, Long, linelength, selectedTrans, graphic, point2, curcount;
     return customOp;
   });
 
+  // var CustomOperation = require('./myModules/CustomOperation');
+
   require(["dojo/parser", "dijit/form/CheckBox", "esri/toolbars/draw", "dojo/on", "dojo/dom", "dijit/registry", "dojo/_base/Color", "esri/graphic",
       "esri/symbols/SimpleMarkerSymbol", "esri/symbols/SimpleLineSymbol", "esri/symbols/SimpleFillSymbol", "dijit/form/NumberSpinner", "esri/toolbars/edit",
       "esri/geometry/jsonUtils", "dijit/Menu", "dijit/MenuItem", "dijit/MenuSeparator", "esri/geometry/Point", "dijit/form/TextBox", "esri/undoManager", "myModules/CustomOperation",
@@ -49,9 +52,9 @@ var Lat, Long, linelength, selectedTrans, graphic, point2, curcount;
       SpatialReference, domConstruct, connect, Font, TextSymbol, domStyle,
       popup, number, LengthsParameters, GeometryService, AreasAndLengthsParameters, array, config, HorizontalSlider, Select, PopupMenuItem, ColorPalette, query, JSON) {
 
-      parser.parse();
+      // parser.parse();
 
-      //esriConfig.defaults.io.corsDetection = false;
+      // esriConfig.defaults.io.corsDetection = false;
 
       var undoManager = new UndoManager();
 

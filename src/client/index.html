@@ -7,15 +7,15 @@
   <title>RECOVER: [NAME] Fire</title>
   <link rel="SHORTCUT ICON" href="https://giscenter.isu.edu/favicon.ico">
 
-  <link rel="stylesheet" href="https://js.arcgis.com/3.17/dijit/themes/claro/claro.css">
-  <link rel="stylesheet" href="https://js.arcgis.com/3.17/esri/css/esri.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/3.16/dijit/themes/claro/claro.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/3.16/esri/css/esri.css">
   <link rel="stylesheet" href="dist/styles.css">
 
 
-  <script src="https://js.arcgis.com/3.17/"></script>
-  <script src="lib/lib.min.js"></script>
+  <script src="https://js.arcgis.com/3.16/"></script>
+  <script src="dist/lib.min.js"></script>
   <!-- <script src="lib/jquery1.11.3.js"></script> -->
-  <!-- <script src="lib/bootstrap/bootstrap.min.js"></script> -->
+  <!-- <script   src="https://code.jquery.com/jquery-1.11.3.min.js"   integrity="sha256-7LkWEzqTdpEfELxcZZlS6wAx5Ff13zZ83lYO2/ujj7g="   crossorigin="anonymous"></script>  <script src="lib/bootstrap/bootstrap.min.js"></script> -->
   <!-- <script type="text/javascript" src="lib/TOC.js"></script> -->
 
 </head>
@@ -86,7 +86,6 @@
             <dd><a target="_blank" href="http://www.nasa.gov/centers/goddard/about/people/index.html">NASA GSFC</a></li></dd>
             <dd><a target="_blank" href="mailto:RECOVERdss@gmail.com?subject=RECOVER">Contact Us!</a></dd>
           </span>
-
         </dl>
       </div>
     </div>
@@ -107,7 +106,7 @@
           </ul>
         </div>
         <div class="scrollable">
-        <div class="tab-content">
+        <div id = "tabs" class="tab-content">
           <div id="about" class="tab-pane active">
             <p><br>Developed upon Esri’s ArcGIS API for Javascript, the RECOVER web map client will enable end-users to consume a mashup of web services applicable to a specific wildfire event.
               <br><br> The graphical user interface will use a customized widget to enable the end-user to interact with the mapping application by assigning weighted values to selected layers such as fire intensity, fire severity, soils, soil moisture,
@@ -162,10 +161,9 @@
   <!-- End Modal -->
 
   <!-- Swipe element, targeted by swipe.js -->
+
   <div id="swipeDiv"></div>
-
   <div id="map">
-
     <span id="info"></span>
     <div id="basemapButton">
       <div data-dojo-type="dijit/TitlePane" data-dojo-props="title:'Basemaps', closable:false, open:false">
@@ -175,14 +173,10 @@
       </div>
     </div>
 
-
-
-
-
     <!-- start Lyrwidget -->
     <div id="LyrWidget" class="widget_container" style="display: none; position: absolute; top: 150px; left: 75px">
-      <div id="LyrListTitle" class="widget_title"><img class="widgetIcon" src="assets\images\i_layers.png"><label for="LyrListTitle">Layer List & Legend</label>
-        <button type="button" name="button" id="CloseLyrWidget" class="close remove"><img src="assets/images/w_close.png"</button>
+      <div id="LyrListTitle" class="widget_title"><img class="widgetIcon" src="assets/images/i_layers.png"><label for="LyrListTitle">Layer List & Legend</label>
+        <button type="button" id="CloseLyrWidget" class="close remove btn btn-default"><img src="assets/images/w_close.png"</button>
         <button type="button" name="button" id="MinLyrWidget" class="close minimize"><img src="assets/images/w_min.png"</button>
       </div>
 
@@ -193,7 +187,7 @@
     <!-- end LyrWidget -->
     <!-- start SwipeWidget -->
     <div id="SwipeWidget" class="widget_container" style="display:none; position: absolute; top: 150px; left: 75px">
-      <div id="SwipeTitle" class="widget_title"><img class="widgetIcon" src="assets\images\i_swipe.png"><label for="SwipeTitle">Swipe/Spotlight</label>
+      <div id="SwipeTitle" class="widget_title"><img class="widgetIcon" src="assets\images\i_swipe.png"><label for="SwipeTitle">Layer Swipe</label>
         <button type="button" name="button" id="CloseSwipeWidget" class="close remove"><img src="assets/images/w_close.png"</button>
         <button type="button" name="button" id="MinSwipeWidget" class="close minimize"><img src="assets/images/w_min.png"</button>
       </div>
@@ -209,7 +203,7 @@
     </div>
     <!-- End Swipewidget -->
     <!-- start Bookmark Widget -->
-    <div id="BookmarksWidget" class="widget_container" style="display: none; position: absolute; top: 100px; left: 400px">
+    <div id="BookmarksWidget" class="widget_container" style="display: none; position: absolute">
       <div id="BookmarkTitle" class="widget_title"><img class="widgetIcon" src="assets\images\i_bookmark.png"><label for="BookmarkTitle">Bookmarks</label>
         <button type="button" name="button" id="CloseBookmark" class="close remove"><img src="assets/images/w_close.png"</button>
         <button type="button" name="button" id="MinBookmarkWidget" class="close minimize"><img src="assets/images/w_min.png"</button>
@@ -307,7 +301,7 @@
         <br>
         <button data-dojo-type="dijit/form/Button" id="undo" data-dojo-props="disabled: true, iconClass:'dijitEditorIcon dijitEditorIconUndo'"></button>
         <button data-dojo-type="dijit/form/Button" id="redo" data-dojo-props="disabled: true, iconClass:'dijitEditorIcon dijitEditorIconRedo'"></button>
-        <button id="clear" data-dojo-type="dijit.form.Button" type="button" data-dojo-attach-point="button">Clear all graphics</button>
+        <button id="clear" data-dojo-type="dijit/form/Button" type="button" data-dojo-attach-point="button">Clear all graphics</button>
         <br><br>Right-click a Graphic to access options
       </div>
     </div>
@@ -374,6 +368,13 @@
     <!-- Start Print Widget -->
 
     <script type="text/javascript" src="dist/main.min.js"></script>
+    <!-- <script type="text/javascript" src="js/recover.js"></script>
+    <script type="text/javascript" src="js/bookmarks.js"></script>
+    <script type="text/javascript" src="js/draw.js"></script>
+    <script type="text/javascript" src="js/print-widget.js"></script>
+    <script type="text/javascript" src="js/swipe.js"></script>
+    <script type="text/javascript" src="js/import.js"></script>
+    <script type="text/javascript" src="js/identify.js"></script> -->
 
 </body>
 

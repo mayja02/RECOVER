@@ -7270,8 +7270,11 @@ nav .tooltips img{
 }
 
 .tab-content {
+  position: relative;
   height: 100%;
   overflow: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
   padding: 0 20px;
 }
 
@@ -7440,7 +7443,7 @@ div.esriBookmarkItem.esriAddBookmark:hover {
 }
 
 .widget_content {
-  max-height: 300px;
+  max-height: 268px;
 	width: 100%;
   padding: 5px;
   color: #CEE7F4;
@@ -7494,8 +7497,8 @@ div.esriBookmarkItem.esriAddBookmark:hover {
 }
 
 .toggle-items:after{
-        clear: both;
-    }
+  clear: both;
+}
 
 .toggle-items li {
     float: left;
@@ -7569,7 +7572,7 @@ div.esriBookmarkItem.esriAddBookmark:hover {
 }
 
 .claro .dijitTitlePaneTitleOpen, .claro .dijitTitlePaneTitleFixedOpen {
-    background-color: #cfe5fa;
+  background-color: #cfe5fa;
 }
 
 .claro .dijitTitlePaneTextNode, .claro .dijitFieldsetLegendNode {
