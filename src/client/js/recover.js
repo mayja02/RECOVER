@@ -64,21 +64,19 @@ var widgets;
       var mv = new move.parentConstrainedMoveable(item.widget,{
         'handle': item.handle,
         'area': map,
-        'within': true,
-        'delay': '10px'
+        'within': true
       });
       // make widget opaque on title drag
       item.handle.addEventListener("mousedown", function(){
-        $(this).parent().css("opacity", "0.6");
+        $(this).closest(".widget_container").css("opacity", "0.6");
       });
       // turn off widget opacity after dragging complete
       item.handle.addEventListener("mouseup", function(){
-        $(this).parent().css("opacity", "1");
+        $(this).closest(".widget_container").css("opacity", "1");
       });
     });
 
     window.onkeydown = function (e) {
-    console.log(e.keyCode);
     if (e.keyCode === 112) {
       var win = window.open('http://giscenter.isu.edu/research/Techpg/nasa_RECOVER/index.htm', '_blank');
       if (win) {
@@ -284,32 +282,32 @@ var widgets;
         name: "LayerList",
         icon: $("#LyrListImg"),
         widget: document.getElementById("LyrWidget"),
-        handle: document.getElementById("LyrListTitle")
+        handle: document.getElementById("LyrHandle")
     }, {
         name: "Swipe",
         icon: $("#SwipeImg"),
         widget: document.getElementById("SwipeWidget"),
-        handle: document.getElementById("SwipeTitle")
+        handle: document.getElementById("SwipeHandle")
     }, {
         name: "Draw",
         icon: $("#DrawImg"),
         widget: document.getElementById("DrawWidget"),
-        handle: document.getElementById("DrawTitle")
+        handle: document.getElementById("DrawHandle")
     }, {
         name: "Bookmarks",
         icon: $("#BookmarkImg"),
         widget: document.getElementById("BookmarksWidget"),
-        handle: document.getElementById("BookmarkTitle")
+        handle: document.getElementById("BookmarkHandle")
     }, {
         name: "Shapefile",
         icon: $("#ShpImg"),
         widget: document.getElementById("ShpWidget"),
-        handle: document.getElementById("ShpfileTitle")
+        handle: document.getElementById("ShpfileHandle")
     }, {
         name: "Print",
         icon: $("#PrintImg"),
         widget: document.getElementById("PrintWidget"),
-        handle: document.getElementById("PrintTitle")
+        handle: document.getElementById("PrintHandle")
     }];
 
     //initilize forEach structure
@@ -343,6 +341,13 @@ var widgets;
             item.icon.removeClass("selected");
         }).removeClass("selected");
 
+        // Pure JS Solution
+        // document.querySelector("button.remove").addEventListener("click", function(){
+        //   this.closest(".widget_container").style.display = 'none';
+        //   $(item.icon).removeClass("selected");
+      // });
+
+
         // use minimize button to collapse widget container
         // on collapse, minimize button will change to expand button to restore origianl dimensions
         $(item.widget).on("click", "button.minimize", function(e) {
@@ -358,6 +363,7 @@ var widgets;
             }
         });
     });
+
     function isTouchDevice(){
 	     try{
     		document.createEvent("TouchEvent");

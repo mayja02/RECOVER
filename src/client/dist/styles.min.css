@@ -723,7 +723,7 @@ a.list-group-item-danger.active,button.list-group-item-danger.active,a.list-grou
 .embed-responsive-16by9{padding-bottom:56.25%}.embed-responsive-4by3{padding-bottom:75%}
 .well{min-height:20px;padding:19px;margin-bottom:20px;background-color:#f5f5f5;border:1px solid #e3e3e3;border-radius:4px;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.05);box-shadow:inset 0 1px 1px rgba(0,0,0,.05)}
 .well blockquote{border-color:#ddd;border-color:rgba(0,0,0,.15)}.well-lg{padding:24px;border-radius:6px}
-.well-sm{padding:9px;border-radius:3px}.close{float:right;font-size:21px;font-weight:bold;line-height:1;color:#000;text-shadow:0 1px 0 #fff;filter:alpha(opacity=20);opacity:.2}
+.well-sm{padding:9px;border-radius:3px}.close{float:right;font-size:21px;font-weight:bold;line-height:1;color:#000;text-shadow:0 1px 0 #fff}
 .close:hover,.close:focus{color:#000;text-decoration:none;cursor:pointer;filter:alpha(opacity=50);opacity:.5}
 button.close{-webkit-appearance:none;padding:0;cursor:pointer;background:transparent;border:0}
 .modal-open{overflow:hidden}.modal{position:fixed;top:0;right:0;bottom:0;left:0;z-index:1050;display:none;overflow:hidden;-webkit-overflow-scrolling:touch;outline:0}
@@ -859,7 +859,7 @@ nav .tooltips img{padding-top:5px;height:25px}}#GSCCModal{margin:auto;top:5%;bot
 form{display:table}form p{display:table-row;padding-top:7px;line-height:15px}form label{padding-left:10px}
 form input,form select{margin:4px 0;display:table-cell;background-color:#759dc0;border:1px solid #888}
 input[type="file"]{width:250px}form select{border-radius:3px}
-.inline{display:inline}.widgetIcon{position:fixed;margin:-2px -21px;height:30px}.widget_title label{padding-left:12px}
+.inline{display:inline}.widgetIcon{position:fixed;margin:6px -19px;height:30px}.widget_title label{padding-left:12px}
 .agsjsTOCLegendLabel{padding-left:20px}.agsjsTOCIcon{vertical-align:middle;width:20px !important}
 .esriBookmarks,.esriBookmarks .dojoDndItem{border:0}.esriBookmarkLabel{color:#cee7f4}
 .esriBookmarkTable{width:auto;border-bottom:2px solid #cee7f4;padding-bottom:4px;margin-bottom:10px}
@@ -867,13 +867,14 @@ input[type="file"]{width:250px}form select{border-radius:3px}
 div.esriBookmarkItem.esriAddBookmark:hover{background-color:#2a4866}.esriAddBookmark div{padding:0}
 .esriBookmarkHighlight{background-color:inherit}.claro .dojoDndItemOver{background-color:inherit}
 .widget_container{z-index:999;font-size:9pt;border:1px solid #cee7f4;border-radius:4px;max-width:284px;max-height:300px}
-.widget_title{background-color:#426e99;padding:5px;color:#cee7f4;font-weight:bold;height:30px;font-size:12px;cursor:move;border-top-left-radius:4px;border-top-right-radius:4px}
-.widget_title button{position:relative;bottom:4px;opacity:1;outline:0}.widget_content{max-height:268px;width:100%;padding:5px;color:#cee7f4;overflow:auto;cursor:default;background-color:rgba(57,98,140,.9);border-bottom-left-radius:4px;border-bottom-right-radius:4px}
+.widget_title{background-color:#426e99;padding:7px 14px;padding-right:3px;margin:0;color:#cee7f4;font-weight:bold;height:30px;font-size:14px;cursor:move;border-top-left-radius:4px;border-top-right-radius:4px}
+.widget_title button{position:relative;bottom:4px;opacity:1;outline:0}.titleButtons{position:absolute;top:0;right:0;margin:2px 3px 0 0}
+.widget_content{max-height:268px;width:100%;padding:5px;color:#cee7f4;overflow:auto;cursor:default;background-color:rgba(57,98,140,.9);border-bottom-left-radius:4px;border-bottom-right-radius:4px}
 .controls{margin-bottom:5px}.agsjsTOCRootLayerLabel{font-size:12px;font-weight:bold}
 .agsjsTOCServiceLayerLabel{font-size:12px}.minimized{height:28px;width:200px;opacity:.6;overflow:hidden}
-.LayerSwipe{position:absolute;width:100%;height:100%;top:0;z-index:1}.toggle-items{list-style:none;height:30px}
-.widget_content h4{margin-top:3px;margin-bottom:10px;text-align:center}.toggle-items:after{clear:both}
-.toggle-items li{float:left;margin-right:10px;padding:5px 10px;cursor:pointer;background-color:#39628a;border-top-left-radius:6px;border-top-right-radius:6px;border-bottom-right-radius:6px;border-bottom-left-radius:6px;border:1px solid #cee7f4;text-indent:0;font-size:14px;color:#cee7f4;font-weight:bold;font-style:normal;text-decoration:none;text-align:center}
+.graphicUtils{display:inline;position:absolute;right:56px;top:5px}.LayerSwipe{position:absolute;width:100%;height:100%;top:0;z-index:1}
+.toggle-items{list-style:none;height:30px}.widget_content h4{margin-top:3px;margin-bottom:10px;text-align:center}
+.toggle-items:after{clear:both}.toggle-items li{float:left;margin-right:10px;padding:5px 10px;cursor:pointer;background-color:#39628a;border-top-left-radius:6px;border-top-right-radius:6px;border-bottom-right-radius:6px;border-bottom-left-radius:6px;border:1px solid #cee7f4;text-indent:0;font-size:14px;color:#cee7f4;font-weight:bold;font-style:normal;text-decoration:none;text-align:center}
 .toggle-items li:hover{background-color:#2a4866}.toggle-items li:active{position:relative;top:1px}
 .claro .dijitCheckBox,.claro .dijitCheckBoxIcon{margin:5px 2px 5px 0}.claro .dijitButton .dijitButtonNode,.claro .dijitButtonText{border:0;padding:0;border-radius:0;box-shadow:0;background-color:rgba(57,98,140,.9)}
 #basemapButton{position:absolute;left:13px;top:125px;z-index:500}.claro .dijitTitlePaneTitle{background-image:url("../assets/images/i_basemap.png");background-repeat:no-repeat;background-size:22px;background-color:#FFF;background-position:center;height:30px;width:32px;border-radius:5px;border:1px solid #57585a}
@@ -883,7 +884,7 @@ div.esriBookmarkItem.esriAddBookmark:hover{background-color:#2a4866}.esriAddBook
 .claro .dijitTitlePane .dijitArrowNode{display:none}.image-upload>input{display:none}
 #loadLabel{padding:0}#LyrWidget{width:320px}#DrawWidget{width:350px}#ImportShp a{letter-spacing:0;text-decoration:underline;color:#cee7f4}
 #tocDiv{font-size:10px}#information table tr label{width:100%;text-align:right;padding-right:5px}
-#printer{margin:20px}#btnPrintReady{display:block;margin:15px auto;border-radius:5px;background-color:#325578}
-#saveGraphic{margin-left:45px;cursor:pointer;display:inline;height:20px}#TransSlider{display:inline-table !important;vertical-align:text-top}
+#info{cursor:move}#printer{margin:20px}#btnPrintReady{display:block;margin:15px auto;border-radius:5px;background-color:#325578}
+#saveGraphic{margin-left:4px;cursor:pointer;display:inline;height:20px}#TransSlider{display:inline-table !important;vertical-align:text-top}
 #slider1input{position:relative;top:-17px;left:80px}#loadGraphic{height:20px;cursor:pointer}
 @media(max-width:480px){figcaption{display:none}}

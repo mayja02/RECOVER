@@ -5845,8 +5845,6 @@ button.list-group-item-danger.active:focus {
   line-height: 1;
   color: #000;
   text-shadow: 0 1px 0 #fff;
-  filter: alpha(opacity=20);
-  opacity: .2;
 }
 .close:hover,
 .close:focus {
@@ -7353,7 +7351,7 @@ form select{
 }
 .widgetIcon{
 	position: fixed;
-  margin: -2px -21px;
+  margin: 6px -19px;
 	height: 30px;
 }
 
@@ -7424,11 +7422,13 @@ div.esriBookmarkItem.esriAddBookmark:hover {
 
 .widget_title {
   background-color: #426E99;
-  padding: 5px;
+  padding: 7px 14px;
+	padding-right: 3px;
+	margin: 0;
 	color: #CEE7F4;
 	font-weight: bold;
 	height: 30px;
-  font-size: 12px;
+  font-size: 14px;
 	cursor:move;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
@@ -7442,6 +7442,13 @@ div.esriBookmarkItem.esriAddBookmark:hover {
   outline: none;
 }
 
+.titleButtons {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 2px 3px 0 0
+
+}
 .widget_content {
   max-height: 268px;
 	width: 100%;
@@ -7475,6 +7482,13 @@ div.esriBookmarkItem.esriAddBookmark:hover {
 	width: 200px;
 	opacity: 0.6;
 	overflow: hidden
+}
+
+.graphicUtils{
+	display: inline;
+	position: absolute;
+	right: 56px;
+	top: 5px;
 }
 
 .LayerSwipe {
@@ -7592,6 +7606,20 @@ div.esriBookmarkItem.esriAddBookmark:hover {
     display: none;
 }
 
+/*.close{
+	position: absolute !important;
+	bottom: 132px;
+	right: 4px;
+}
+
+.minimize{
+	position: absolute !important;
+	bottom: 132px;
+	right: 20px;
+	border: none;
+	background: transparent;
+}*/
+
 #loadLabel{
 	padding: 0;
 }
@@ -7619,6 +7647,10 @@ div.esriBookmarkItem.esriAddBookmark:hover {
 	padding-right: 5px;
 }
 
+#info{
+	cursor:move;
+}
+
 #printer{
 	margin: 20px;
 }
@@ -7631,7 +7663,7 @@ div.esriBookmarkItem.esriAddBookmark:hover {
 }
 
 #saveGraphic {
-	margin-left: 45px;
+	margin-left: 4px;
 	cursor: pointer;
 	display: inline;
 	height: 20px;

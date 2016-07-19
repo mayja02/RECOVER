@@ -7,16 +7,17 @@
   <title>RECOVER: [NAME] Fire</title>
   <link rel="SHORTCUT ICON" href="https://giscenter.isu.edu/favicon.ico">
 
-  <link rel="stylesheet" href="https://js.arcgis.com/3.16/dijit/themes/claro/claro.css">
-  <link rel="stylesheet" href="https://js.arcgis.com/3.16/esri/css/esri.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/3.17/dijit/themes/claro/claro.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/3.17/esri/css/esri.css">
   <link rel="stylesheet" href="dist/styles.css">
 
 
-  <script src="https://js.arcgis.com/3.16/"></script>
-  <script src="dist/lib.min.js"></script>
-  <!-- <script src="lib/jquery1.11.3.js"></script> -->
-  <!-- <script   src="https://code.jquery.com/jquery-1.11.3.min.js"   integrity="sha256-7LkWEzqTdpEfELxcZZlS6wAx5Ff13zZ83lYO2/ujj7g="   crossorigin="anonymous"></script>  <script src="lib/bootstrap/bootstrap.min.js"></script> -->
-  <!-- <script type="text/javascript" src="lib/TOC.js"></script> -->
+
+  <!-- <script src="dist/lib.min.js"></script> -->
+  <script src="lib/jquery1.11.3.js"></script>
+  <script src="lib/bootstrap/bootstrap.min.js"></script>
+  <script src="https://js.arcgis.com/3.17/"></script>
+  <script type="text/javascript" src="lib/TOC.js"></script>
 
 </head>
 
@@ -175,9 +176,12 @@
 
     <!-- start Lyrwidget -->
     <div id="LyrWidget" class="widget_container" style="display: none; position: absolute; top: 150px; left: 75px">
-      <div id="LyrListTitle" class="widget_title"><img class="widgetIcon" src="assets/images/i_layers.png"><label for="LyrListTitle">Layer List & Legend</label>
-        <button type="button" id="CloseLyrWidget" class="close remove btn btn-default"><img src="assets/images/w_close.png"</button>
-        <button type="button" name="button" id="MinLyrWidget" class="close minimize"><img src="assets/images/w_min.png"</button>
+      <div id="LyrListTitle" ><img class="widgetIcon" src="assets/images/i_layers.png" style = "margin: 4px -21px; height:34px">
+        <h2 id=LyrHandle class="widget_title">Layer List & Legend</h2>
+        <div class="titleButtons">
+          <button type="button" id="CloseLyrWidget" class="close remove"><img src="assets/images/w_close.png"</button>
+          <button type="button" name="button" id="MinLyrWidget" class="close minimize"><img src="assets/images/w_min.png"</button>
+        </div>
       </div>
 
       <div class="widget_content">
@@ -187,9 +191,12 @@
     <!-- end LyrWidget -->
     <!-- start SwipeWidget -->
     <div id="SwipeWidget" class="widget_container" style="display:none; position: absolute; top: 150px; left: 75px">
-      <div id="SwipeTitle" class="widget_title"><img class="widgetIcon" src="assets\images\i_swipe.png"><label for="SwipeTitle">Layer Swipe</label>
-        <button type="button" name="button" id="CloseSwipeWidget" class="close remove"><img src="assets/images/w_close.png"</button>
-        <button type="button" name="button" id="MinSwipeWidget" class="close minimize"><img src="assets/images/w_min.png"</button>
+      <div id="SwipeTitle"><img class="widgetIcon" src="assets\images\i_swipe.png">
+        <h2 id= "SwipeHandle" class="widget_title">Layer Swipe</h2>
+        <div class="titleButtons">
+          <button type="button" name="button" id="CloseSwipeWidget" class="close remove"><img src="assets/images/w_close.png"</button>
+          <button type="button" name="button" id="MinSwipeWidget" class="close minimize"><img src="assets/images/w_min.png"</button>
+        </div>
       </div>
       <div class="widget_content">
         <h4>Type</h4>
@@ -204,9 +211,12 @@
     <!-- End Swipewidget -->
     <!-- start Bookmark Widget -->
     <div id="BookmarksWidget" class="widget_container" style="display: none; position: absolute">
-      <div id="BookmarkTitle" class="widget_title"><img class="widgetIcon" src="assets\images\i_bookmark.png"><label for="BookmarkTitle">Bookmarks</label>
-        <button type="button" name="button" id="CloseBookmark" class="close remove"><img src="assets/images/w_close.png"</button>
-        <button type="button" name="button" id="MinBookmarkWidget" class="close minimize"><img src="assets/images/w_min.png"</button>
+      <div id="BookmarkTitle"><img class="widgetIcon" src="assets\images\i_bookmark.png">
+        <h2 id="BookmarkHandle" class="widget_title">Bookmarks</h2>
+        <div class="titleButtons">
+          <button type="button" name="button" id="CloseBookmark" class="close remove"><img src="assets/images/w_close.png"</button>
+          <button type="button" name="button" id="MinBookmarkWidget" class="close minimize"><img src="assets/images/w_min.png"</button>
+        </div>
       </div>
       <div class="widget_content">
         <div id="Bookmarks"></div>
@@ -215,9 +225,12 @@
     <!-- End BookmarkWidget -->
     <!-- start import Shapefile widget -->
     <div id="ShpWidget" class="widget_container" style="display: none; position: absolute; top: 100px; left: 400px">
-      <div id="ShpfileTitle" class="widget_title"><img class="widgetIcon" src="assets\images\shapefiles.png"><label for="ShpfileTitle">Import Shapefile</label>
-        <button type="button" name="button" id="CloseShpfileWidget" class="close remove"><img src="assets/images/w_close.png"</button>
-        <button type="button" name="button" id="MinShpfileWidget" class="close minimize"><img src="assets/images/w_min.png"</button>
+      <div id="ShpfileTitle"><img class="widgetIcon" src="assets\images\shapefiles.png">
+        <h2 id="ShpfileHandle" class="widget_title">Import Shapefile</h2>
+        <div class="titleButtons">
+          <button type="button" name="button" id="CloseShpfileWidget" class="close remove"><img src="assets/images/w_close.png"</button>
+          <button type="button" name="button" id="MinShpfileWidget" class="close minimize"><img src="assets/images/w_min.png"</button>
+        </div>
       </div>
       <div class="widget_content">
         <div id="ImportShp">
@@ -239,17 +252,21 @@
     <!-- End import Shapefile widget -->
     <!-- start Draw widget -->
     <div id="DrawWidget" class="widget_container" style="display: none; position: absolute; top: 100px; left: 400px">
-      <div id="DrawTitle" class="widget_title"><img class="widgetIcon" src="assets\images\i_draw2.png"><label for="DrawTitle">Draw and Measure</label>
-        <a id="graphicDownload"><img id="saveGraphic" src="assets/images/i_save.png"></a>
-        <div class="image-upload" style="display: inline; padding: 0">
-          <label id="loadLabel" for="file-input">
-        <img id="loadGraphic" src="assets/images/i_folder.png"/>
-    </label>
-
-          <input id="file-input" type="file" accept=".json" />
+      <div id="DrawTitle"><img class="widgetIcon" src="assets\images\i_draw2.png">
+        <div class="graphicUtils">
+          <a id="graphicDownload"><img id="saveGraphic" src="assets/images/i_save.png"></a>
+          <div class="image-upload" style="display: inline; padding: 0">
+            <label id="loadLabel" for="file-input">
+              <img id="loadGraphic" src="assets/images/i_folder.png"/>
+            </label>
+            <input id="file-input" type="file" accept=".json" />
+          </div>
         </div>
-        <button type="button" name="button" id="CloseDrawWidget" class="close remove"><img src="assets/images/w_close.png"</button>
-        <button type="button" name="button" id="MindrawWidget" class="close minimize"><img src="assets/images/w_min.png"</button>
+        <h2 id="DrawHandle" class="widget_title">Draw and Measure</h2>
+        <div class="titleButtons">
+          <button type="button" name="button" id="CloseDrawWidget" class="close remove"><img src="assets/images/w_close.png"</button>
+          <button type="button" name="button" id="MindrawWidget" class="close minimize"><img src="assets/images/w_min.png"</button>
+        </div>
       </div>
       <div class="widget_content">
         <div>Select a shape then draw on map to add graphic</div>
@@ -308,9 +325,12 @@
     <!-- start Draw widget -->
     <!-- Start Print Widget -->
     <div id="PrintWidget" class="widget_container" style="display: none; position: absolute; top: 150px; left: 75px">
-      <div id="PrintTitle" class="widget_title"><img class="widgetIcon" src="assets\images\i_print.png"><label for="PrintTitle">Print</label>
-        <button type="button" name="button" id="ClosePrintWidget" class="close remove"><img src="assets/images/w_close.png"</button>
-        <button type="button" name="button" id="MinPrintWidget" class="close minimize"><img src="assets/images/w_min.png"</button>
+      <div id="PrintTitle"><img class="widgetIcon" src="assets\images\i_print.png">
+        <h2 id="PrintHandle" class="widget_title">Print</h2>
+        <div class="titleButtons">
+          <button type="button" name="button" id="ClosePrintWidget" class="close remove"><img src="assets/images/w_close.png"</button>
+          <button type="button" name="button" id="MinPrintWidget" class="close minimize"><img src="assets/images/w_min.png"</button>
+        </div>
       </div>
       <div class="widget_content">
         <form id="frmPrint" action="" onsubmit="return false;">
@@ -367,14 +387,14 @@
     </div>
     <!-- Start Print Widget -->
 
-    <script type="text/javascript" src="dist/main.min.js"></script>
-    <!-- <script type="text/javascript" src="js/recover.js"></script>
+    <!-- <script type="text/javascript" src="dist/main.min.js"></script> -->
+    <script type="text/javascript" src="js/recover.js"></script>
     <script type="text/javascript" src="js/bookmarks.js"></script>
     <script type="text/javascript" src="js/draw.js"></script>
     <script type="text/javascript" src="js/print-widget.js"></script>
     <script type="text/javascript" src="js/swipe.js"></script>
     <script type="text/javascript" src="js/import.js"></script>
-    <script type="text/javascript" src="js/identify.js"></script> -->
+    <script type="text/javascript" src="js/identify.js"></script>
 
 </body>
 
