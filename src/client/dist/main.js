@@ -195,7 +195,8 @@ var widgets;
         map: map,
         attachTo: "bottom-right",
         color: "#F20C0C",
-        opacity: 0.4
+        opacity: 0.4,
+        visible: true
       });
       overviewMapDijit.startup();
 

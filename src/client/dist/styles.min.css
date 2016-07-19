@@ -834,7 +834,7 @@ nav h3,h6{margin:0}dl{margin-top:5px}#tools{margin:0 auto;padding-top:10px;width
 .navbar-left{padding-right:20px;position:fixed;left:50px}.navbar>.container .navbar-brand,.navbar>.container-fluid .navbar-brand{margin-left:0}
 .navbar-default .navbar-toggle:hover,.navbar-default .navbar-toggle:focus{background-color:transparent}
 .navbar-default .navbar-toggle{background-color:transparent}.tooltips{position:relative;display:inline;height:38px}
-.selected{border-bottom:2px solid white}.tooltips img{position:relative}.tooltips figcaption{color:#cee7f4;background:#39628c;box-shadow:0 4px 3px #2b3856;border-radius:24px;position:absolute;display:inline-block;top:48px;width:115px;left:-1000px;right:-960px;text-align:center;visibility:hidden;margin:0 auto}
+.selected{border-bottom:2px solid white}.tooltips img{position:relative}.tooltips figcaption{color:#cee7f4;background:#39628c;box-shadow:0 4px 3px #2b3856;border-radius:24px;position:absolute;display:-moz-inline-stack;display:inline-block;top:48px;width:115px;left:-1000px;right:-960px;text-align:center;visibility:hidden;margin:0 auto}
 .tooltips figcaption:after{content:'';position:absolute;bottom:100%;right:45%;border-bottom:8px solid #39628c;border-right:8px solid transparent;border-left:8px solid transparent}
 .tooltips:hover{cursor:pointer}.tooltips:hover figcaption{visibility:visible}.container-fluid>.navbar-collapse,.container-fluid>.navbar-header,.container>.navbar-collapse,.container>.navbar-header{margin-right:0;margin-left:0}
 .navbar-header{float:none}#links{display:block;padding-right:25px}#links dd{padding-bottom:10px}

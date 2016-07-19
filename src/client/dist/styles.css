@@ -7033,6 +7033,7 @@ nav .tooltips img{
   box-shadow: 0 4px 3px #2B3856;
   border-radius: 24px;
   position: absolute;
+  display: -moz-inline-stack;
   display: inline-block;
   top: 48px;
   width: 115px;
